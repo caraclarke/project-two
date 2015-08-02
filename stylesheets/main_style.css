@@ -132,3 +132,44 @@ body {
     margin-top: 120px;
   }
 }
+
+/* Contact Us Table */
+
+.contact-form {
+  padding-top: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+form {
+  display:table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form textarea {
+  width: 500px;
+  height: 300px;
+  font-family: Courier, serif;
+}
+
+.table {
+  display: table-row;
+  text-align: right;
+}
+
+.table p {
+  display: table-cell;
+  vertical-align: top;
+  padding: 5px;
+}
+
+.comment {
+  display: table-row;
+  text-align: left;
+}
+
+.submit {
+  text-align: center;
+}
