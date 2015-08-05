@@ -1,8 +1,7 @@
 $(function() {
   'use strict';
   // var gameWatcher;
-  // var sa = 'localhost:3000';
-  // var sa = '';
+  var sa = 'http://localhost:3000';
 
 // User
 $('#register').on('click', function(e){
@@ -10,7 +9,7 @@ $('#register').on('click', function(e){
   reader.onload = function(event){
     var picture = event.target.result;
     $.ajax({
-   url: '/users',
+      url: sa + '/users',
        contentType: 'application/json',  // to send as JSON, must specify content type
        processData: false,
        data: JSON.stringify({
@@ -42,7 +41,7 @@ $('#register').on('click', function(e){
 
 $('#login').on('click', function(e){
  $.ajax({
-  url: '/login',
+  url: sa + '/login',
   contentType: 'application/json',
   processData: false,
   data: JSON.stringify({
@@ -55,6 +54,7 @@ $('#login').on('click', function(e){
   method: 'POST'
 }).done(function(data, textStatus, jqxhr){
  $('#token').val(data.token);
+  console.log(data.token);
 }).fail(function(jqxhr, textStatus, errorThrown){
  $('#result').val('login failed');
 });
@@ -97,63 +97,6 @@ $("#destroy").on('click', function(){
 }); // end destroy
 
 // End users
-
-// Profiles
-
-$("#profile-update").on('click', function(){
-  $.ajax({
-    url: '/profiles/' + $("#profile_id").val(),
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + $('#token').val()
-    },
-    data: {
-      credentials: {
-       surname: $('#surname').val(),
-       given_name: $('#given_name').val(),
-       location: $('#location').val(),
-       about_me: $('#about_me').val(),
-       gender: $('#gender').val(),
-       profile_id: $('#profile_id').val(),
-       user_id: $('#user-id').val()
-     }
-   }
- }).done(function(data, textStatus, jqxhr){
-   $('#result').val(JSON.stringify(data));
- }).fail(function(jqxhr, textStatus, errorThrown){
-   $('#result').val('profile update failed');
- });
-}); // end update
-
-var profileShowTemplate = Handlebars.compile($("#profile").html());
-
-$("#profile-show").on('click', function(event){
-  $.ajax({
-    url: "/profiles/" + $('#profile_id').val(),
-  }).done(function(response){
-     $("#show-profile").html(profileShowTemplate({
-        profile: response.profile
-    }));
-  }).fail(function(data){
-    console.error(data);
-  });
-});
-
-$("#profile-destroy").on('click', function(){
-  $.ajax({
-    url: '/profiles/' + $("#profile_id").val(),
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + $('#token').val()
-    },
-  }).done(function(data){
-    console.log("Deleted profile!");
-  }).fail(function(data){
-    console.error(data);
-  });
-}); // end destroy
-
-// End profiles
 
 }); // end function
 
