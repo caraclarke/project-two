@@ -1,95 +1,187 @@
-// Attendance
+$(function() {
+  'use strict';
+  var sa = 'http://localhost:3000';
 
-$("#project-create").on('click', function(e){
-  var projectReader = new FileReader();
-  projectReader.onload = function(event) {
-    var project_picture = event.target.result;
-      $.ajax({
-      url: sa + '/projects',
+// Workshops
+
+$("#workshop-create").on('click', function(e){
+    $.ajax({
+      url: sa + '/workshops',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + $('#token').val()
       },
       data: {
         credentials: {
-          title: $('#project-title').val(),
-          instructions: $('#project-instructions').val(),
-          profile_id: $('profile_id').val(),
-          project_image: project_picture
+          title: $('#workshop-title').val(),
+          location: $('#workshop-location').val(),
+          about: $('#workshop-about').val(),
+          contact: $('#workshop-contact').val(),
+          repeats: $('#workshop-repeats').val()
         }
       }
     }).done(function(data){
-      console.log("Created project!");
+      console.log("Created workshop!");
       $('#result').val(JSON.stringify(data)); // update to display in handlebars
     }).fail(function(data){
       console.error(data);
     });
   }
   projectReader.readAsDataURL($('#project-picture')[0].files[0]);
-}); // end attendance create
+}); // end workshop create
 
-var projectDisplayTemplate = Handlebars.compile($('#project').html());
+var workshopShowTemplate = Handlebars.compile($('#workshop-show-template').html());
 
-$("#project-show").on('click', function(event){
+$("#workshop-show").on('click', function(event){
   $.ajax({ // change this button
-    url: sa + "/projects/" + $("#project-id").val(),
-  }).done(function(movie){
-    $("#show-project").html(projectDisplayTemplate({
-      project: response.project
+    url: sa + "/workshops/" + $("#workshop-id").val(),
+  }).done(function(workshop){
+    $("#show-workshop").html(workshopShowTemplate({
+      workshop: response.workshop
     }));
   }).fail(function(data){
     console.error(data);
   });
-}); // end attendance show
+}); // end workshop show
 
-$("#project-index").on('click', function(event){
+var workshopIndexTemplate = Handlebars.compile($('#workshop-index-template').html());
+
+$("#workshop-index").on('click', function(event){
   $.ajax({
-    url: sa + "/projects",
+    url: sa + "/workshops",
   }).done(function(data){
-    $("#index-project").html(projectDisplayTemplate({
-      project: data
+    $("#index-workshop").html(workshopIndexTemplate({
+      workshop: data
     }));
-    });
-  }).fail(function(data){
-    console.error(data);
   });
-}); // end attendance index
+}).fail(function(data){
+  console.error(data);
+});
+}); // end workshop index
 
-$("#project-update").on('click', function(){
+$("#workshop-update").on('click', function(){
   $.ajax({
-    url: sa + '/projects/' + $("#project-id").val(),
+    url: sa + '/workshops/' + $("#workshop-id").val(),
     method: 'PATCH',
     headers: {
-        Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + $('#token').val()
     }, // authenticate creator
     data: {
       credentials: {
-        title: $('#project-title').val(),
-        instructions: $('#project-instructions').val(),
-        profile_id: $('profile_id').val()
-     }
-   }
- }).done(function(data, textStatus, jqxhr){
-   $("#show-project").html(projectDisplayTemplate({
-      project: response.project
+        title: $('#workshop-title').val(),
+        location: $('#workshop-location').val(),
+        about: $('#workshop-about').val(),
+        contact: $('#workshop-contact').val(),
+        repeats: $('#workshop-repeats').val()
+      }
+    }
+  }).done(function(data, textStatus, jqxhr){
+   $("#show-workshop").html(workshopShowTemplate({
+    workshop: response.workshop
     })); // may not work?
  }).fail(function(jqxhr, textStatus, errorThrown){
-      console.error(errorThrown);
- });
-}); // end attendance update
+  console.error(errorThrown);
+});
+}); // end workshop update
 
-$("#project-destroy").on('click', function(){
+$("#workshop-destroy").on('click', function(){
   $.ajax({
-    url: sa + '/projects/' + $("#project-id").val(),
+    url: sa + '/workshops/' + $("#workshop-id").val(),
     method: 'DELETE',
     headers: {
-        Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + $('#token').val()
     }, // authenticate creator not just logged in
   }).done(function(data){
-    console.log("Deleted project!");
+    console.log("Deleted workshop!");
+  }).fail(function(data){
+    console.error(data);
+  });
+}); // end workshop destroy
+
+// End Workshops
+
+// Attendances
+
+$("#attendance-create").on('click', function(e){
+    $.ajax({
+      url: sa + '/attendances',
+      method: 'POST',
+      headers: {
+        Authorization: 'Token token=' + $('#token').val()
+      },
+      data: {
+        credentials: {
+          title: $('#workshop-title').val(),
+          date: $('#project-instructions').val(),
+          user_name: $('attendance-name').val()
+        }
+      }
+    }).done(function(data){
+      console.log("Created attendance!");
+      $("#index-project").html(projectDisplayTemplate({
+        project: data
+      }));
+    }).fail(function(data){
+      console.error(data);
+    });
+  }
+}); // end attendance create
+
+var attendanceIndexTemplate = Handlebars.compile($('#attendance-index-template').html());
+
+$("#attendance-index").on('click', function(event){
+  $.ajax({
+    url: sa + "/attendances",
+  }).done(function(data){
+    $("#index-attendance").html(attendanceIndexTemplate({
+      attendance: data
+    }));
+  });
+}).fail(function(data){
+  console.error(data);
+});
+}); // end attendance index
+
+$("#attendance-update").on('click', function(){
+  $.ajax({
+    url: sa + '/attendances/' + $("#attendace-id").val(),
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + $('#token').val()
+    }, // authenticate creator
+    data: {
+      credentials: {
+        title: $('#workshop-title').val(),
+        date: $('#project-instructions').val(),
+        user_name: $('attendance-name').val()
+      }
+    }
+  }).done(function(data, textStatus, jqxhr){
+   $("#index-attendance").html(attendanceIndexTemplate({
+      attendance: data
+    }));
+ }).fail(function(jqxhr, textStatus, errorThrown){
+  console.error(errorThrown);
+});
+}); // end attendance update
+
+$("#attendance-destroy").on('click', function(){
+  $.ajax({
+    url: sa + '/attendances/' + $("#attendance-id").val(),
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + $('#token').val()
+    }, // authenticate creator not just logged in
+  }).done(function(data){
+    console.log("Deleted attendance!");
   }).fail(function(data){
     console.error(data);
   });
 }); // end attendance destroy
 
-// end Attendance
+// end Attendances
+
+}); // end function
+
+// headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
+// ruby -run -e httpd . -p 5000

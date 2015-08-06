@@ -2,29 +2,13 @@ $(function() {
   'use strict'
   var sa = 'http://localhost:3000';
 
-// alert("I'm on line five");
-// $.ajax({
-//       url: sa + "/profiles/1"
-//       // + $('#profile_id').val(),
-//     }).done(function(response){
-//       alert(JSON.stringify(response));
-//      // $("#show-profile").html(
-//      //  JSON.stringify(response));
-//     //   profileShowTemplate({
-//     //   profile: response.profile
-//     // })
-//    }).fail(function(data){
-//     alert("fail");
-//     console.error(data);
-//   }); practice thingie
-
   // Profiles
   $("#profile-update").on('click', function(){
     $.ajax({
       url: sa + '/profiles/' + $("#profile_id").val(),
       method: 'PATCH',
       headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
       },
       data: {
         credentials: {
@@ -63,7 +47,7 @@ $(function() {
       url: sa + '/profiles/' + $("#profile_id").val(),
       method: 'DELETE',
       headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
       },
     }).done(function(data){
       console.log("Deleted profile!");

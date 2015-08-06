@@ -29,7 +29,7 @@ $('#register').on('click', function(e){
        dataType: 'json',
        method: 'POST'
      }).done(function(data, textStatus, jqxhr){
-       // put that thing back
+       simpleStorage.set('token', data.token);
      }).fail(function(jqxhr, textStatus, errorThrown){
        $('#result').val('registration failed');
      });
@@ -53,8 +53,8 @@ $('#login').on('click', function(e){
   dataType: 'json',
   method: 'POST'
 }).done(function(data, textStatus, jqxhr){
- // $('#token').val(data.token);
-    window.location.href = '/profile.html'
+    simpleStorage.set('token', data.token);
+    window.location.href = '/profile.html';
 }).fail(function(jqxhr, textStatus, errorThrown){
   alert("Password incorrect, please try again.");
 });
@@ -67,7 +67,7 @@ $("#update").on('click', function(){
     url: sa + '/users/' + $("#user-id").val(),
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + simpleStorage.get('token')
     },
     data: {
       credentials: {
@@ -78,7 +78,7 @@ $("#update").on('click', function(){
      }
    }
  }).done(function(data, textStatus, jqxhr){
-   $('#result').val(JSON.stringify(data));
+   window.location.href = '/profile.html';
  }).fail(function(jqxhr, textStatus, errorThrown){
    $('#result').val('update failed');
  });
@@ -89,7 +89,7 @@ $("#destroy").on('click', function(){
     url: sa + '/users/' + $("#user-id").val(),
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + simpleStorage.get('token')
     },
   }).done(function(data){
     console.log("Deleted user!");
