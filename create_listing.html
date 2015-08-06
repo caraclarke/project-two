@@ -7,7 +7,7 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/login_style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -56,30 +56,61 @@
     </div>
   </div> <!-- end navbar -->
 
-    <div class="container">
+  <!-- Workshop -->
+  <div class="contact-form">
+    <h2>Create Workshop Post</h2>
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Register for Crosshatch!</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-          <input id="email" type="email" class="form-control" placeholder="Email address" required autofocus>
-          <input id="password" type="password" class="form-control" placeholder="Password">
-          <input id="surname" type="text" placeholder="Last Name">
-          <input id="given_name" type="text" placeholder="First Name">
-          <input id="location" type="text" placeholder="City, State">
-          <input id="about_me" type="text" placeholder="About Me">
-          <input id="gender" type="text" placeholder="Gender">
-          <input id="profile-picture" type="file" value="Profile Picture"><br> <!-- may need to be renaimed just picture check AJAX -->
-          <!-- <input id="profile_id" type="text" placeholder="profile id"> -->
+    <form action="./process-page.html" method="post" enctype="multipart/form-data" name="CrossHatch Workshop Form">
 
-          <button id="register" class="btn btn-lg btn-primary btn-block" type="button">Sign Up</button>
+      <div class="table">
+        <p>Title: <input name="Workshop Title" type="text" value="" size="50"></p>
+      </div>
+      <div class="table">
+        <p>Location: <input name="Location" type="text" value="" size="50"></p>
+      </div>
+      <div class="table">
+        <p>About: <input name="About" type="text" value="" size="50"></p>
+      </div>
+      <div class="table">
+        <p>Contact Information: <input name="Conact Information" type="text" value="" size="50"></p>
+      </div>
+      <div class="table">
+        <p>Repeats: <input name="Repeats" type="text" value="" size="50"></p>
+      </div><br>
+      <input id="workshop-picture" type="file" value="Workshop Picture"><br>
+      <div class="submit">
+        <p><input name="workshop-submit" type="submit" value="Submit">
+          <input name="workshop-reset" type="reset" value="Reset"></p>
+        </div>
+      </form>
+    </div>
+
+    <!-- DIY Project -->
+    <div class="contact-form">
+    <h2>Create DIY Project Post</h2>
+
+      <form action="./process-page.html" method="post" enctype="multipart/form-data" name="CrossHatch Project Form">
+
+        <div class="table">
+          <p>Title: <input name="Workshop Title" type="text" value="" size="50"></p>
+        </div>
+        <div class="comment">
+          <p>Instructions: <br><textarea name="Instructions" cols="20" rows="40">Instructions Here:</textarea></p>
+        </div>
+        <input id="project-picture" type="file" value="Project Picture"><br>
+        <div class="submit">
+          <p><input name="project-submit" type="submit" value="Submit">
+            <input name="project-reset" type="reset" value="Reset"></p>
+          </div>
         </form>
+      </div>
 
-      </div> <!-- /container -->
-      <!-- <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script> -->
-      <script type="text/javascript" src="js/user.js" defer charset="utf-8"></script>
-      <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
+      <div id="footer"> <!-- Footer -->
+        <p>&copy; CrossHatch</p>
+      </div>
+
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+    </body>
+    </html>
