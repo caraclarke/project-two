@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CrossHatch: Find Your Fun</title>
+  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+</head>
+<body>
+  <div class="navbar-wrapper">
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CrossHatch</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="about_us.html">About</a></li>
+              <li><a href="login_page.html">Login</a></li>
+              <li><a href="register.html">Register</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="project_list.html">Projects</a></li>
+                  <li><a href="workshop_list.html">Workshops</a></li>
+                  <li><a href="#">Make a post</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Your Account</li>
+                  <li><a href="profile.html">My Profile</a></li>
+                  <li><a href="contact_us.html">Contact Us</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div> <!-- end navbar -->
+
+  <!-- Handlebars -->
+   <script id="profile" type="text/x-handlebars-template">
+       <li>
+         <h4>{{profile.given_name}} {{profile.surname}}</h4>
+         <p>{{profile.profile_picture}}</p>
+         <p>Location: {{profile.location}}</p>
+         <p>Gender: {{profile.gender}}</p>
+         <p>About Me: {{profile.about_me}}</p>
+       </li>
+   </script>
+
+
+  <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js" defer charset="utf-8"></script>
+  </body>
+</body>
+</html>
+

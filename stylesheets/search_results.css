@@ -30,7 +30,6 @@ h6, .h6 {
   }
 }
 
-
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -51,8 +50,6 @@ h6, .h6 {
 .navbar-wrapper .navbar .container {
   width: auto;
 }
-
-
 
 /*
  * Blog name and description
