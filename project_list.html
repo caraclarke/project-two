@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CrossHatch: Find Your Fun</title>
-  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/search_results.css">
 </head>
@@ -22,7 +22,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">CrossHatch</a>
+            <a class="navbar-brand" href="index.html">CrossHatch</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -35,7 +35,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="project_list.html">Projects</a></li>
                   <li><a href="workshop_list.html">Workshops</a></li>
-                  <li><a href="#">Make a post</a></li>
+                  <li><a href="create_listing.html">Make a post</a></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Your Account</li>
                   <li><a href="profile.html">My Profile</a></li>
@@ -173,13 +173,15 @@
   -->
 
   <label for="project">Project Buttons: </label>
-   <input id="project-title" type="text" placeholder="project title">
-   <input id="project-instructions" type="text" placeholder="project instructions">
-   <input id="project-picture" type="file" value="Project Picture"><br>
+   <input id="project-create" type="button" value="Project Create">
+   <input id="project-update" type="button" value="Project Update">
+   <input id="project-show" type="button" value=" Project Show">
+   <input id="project-list" type="button" value="Project List">
+   <input id="project-destroy" type="button" value="Project Destroy">
 
   <!-- Handlebars -->
   <div id="show-project">
-    <script id="project" type="text/x-handlebars-template">
+    <script id="project-show-template" type="text/x-handlebars-template">
      <li>
        <h4>{{project.title}}</h4>
        <p>{{project.project_image}}</p>
@@ -189,19 +191,7 @@
   </div>
 
   <div id="index-project">
-   <script id="project" type="text/x-handlebars-template">
-   {{#each projects}}
-     <li>
-       <h4>{{project.title}}</h4>
-       <p>{{project.project_image}}</p>
-       <p>Instructions: {{project.instructions}}</p>
-     </li>
-    {{/each}}
-   </script>
-  </div>
-
-   <div id="index-attendance">
-   <script id="attendance" type="text/x-handlebars-template">
+   <script id="project-index-template" type="text/x-handlebars-template">
    {{#each projects}}
      <li>
        <h4>{{project.title}}</h4>
@@ -221,8 +211,10 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/handlebars-v3.0.3.js"></script>
   <script src="js/index.js"></script>
   </body>
 </html>

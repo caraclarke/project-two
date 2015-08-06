@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CrossHatch: Find Your Fun</title>
-  <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
 </head>
@@ -22,7 +22,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">CrossHatch</a>
+            <a class="navbar-brand" href="index.html">CrossHatch</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -35,7 +35,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="project_list.html">Projects</a></li>
                   <li><a href="workshop_list.html">Workshops</a></li>
-                  <li><a href="#">Make a post</a></li>
+                  <li><a href="create_listing.html">Make a post</a></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Your Account</li>
                   <li><a href="profile.html">My Profile</a></li>
@@ -63,24 +63,23 @@
     <form action="./process-page.html" method="post" enctype="multipart/form-data" name="CrossHatch Workshop Form">
 
       <div class="table">
-        <p>Title: <input name="Workshop Title" type="text" value="" size="50"></p>
+        <p>Title: <input id="workshop-title" name="Workshop Title" type="text" value="" size="50"></p>
       </div>
       <div class="table">
-        <p>Location: <input name="Location" type="text" value="" size="50"></p>
+        <p>Location: <input id="workshop-location" name="Location" type="text" value="" size="50"></p>
       </div>
       <div class="table">
-        <p>About: <input name="About" type="text" value="" size="50"></p>
+        <p>About: <input id="workshop-about" name="About" type="text" value="" size="50"></p>
       </div>
       <div class="table">
-        <p>Contact Information: <input name="Conact Information" type="text" value="" size="50"></p>
+        <p>Contact Information: <input id="workshop-contact" name="Conact Information" type="text" value="" size="50"></p>
       </div>
       <div class="table">
-        <p>Repeats: <input name="Repeats" type="text" value="" size="50"></p>
+        <p>Repeats: <input id="workshop-repeats" name="Repeats" type="text" value="" size="50"></p> <!-- make me a check yes or no? -->
       </div><br>
-      <input id="workshop-picture" type="file" value="Workshop Picture"><br>
       <div class="submit">
-        <p><input name="workshop-submit" type="submit" value="Submit">
-          <input name="workshop-reset" type="reset" value="Reset"></p>
+        <p><input name="workshop-create" type="submit" value="Submit">
+        <input name="workshop-reset" type="reset" value="Reset"></p> <!-- clear fields -->
         </div>
       </form>
     </div>
@@ -92,10 +91,10 @@
       <form action="./process-page.html" method="post" enctype="multipart/form-data" name="CrossHatch Project Form">
 
         <div class="table">
-          <p>Title: <input name="Workshop Title" type="text" value="" size="50"></p>
+          <p>Title: <input id="project-title" name="Project  Title" type="text" value="" size="50"></p>
         </div>
         <div class="comment">
-          <p>Instructions: <br><textarea name="Instructions" cols="20" rows="40">Instructions Here:</textarea></p>
+          <p>Instructions: <br><textarea id="project-instructions" name="Instructions" cols="20" rows="40">Instructions Here:</textarea></p>
         </div>
         <input id="project-picture" type="file" value="Project Picture"><br>
         <div class="submit">
@@ -111,6 +110,7 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="bower_components/simpleStorage/simpleStorage.js"></script>
     </body>
     </html>
