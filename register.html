@@ -7,7 +7,7 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/login_style.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -56,23 +56,29 @@
     </div>
   </div> <!-- end navbar -->
 
-  <!-- Handlebars -->
-   <script id="profile" type="text/x-handlebars-template">
-       <li>
-         <h4>{{profile.given_name}} {{profile.surname}}</h4>
-         <p>{{profile.profile_picture}}</p>
-         <p>Location: {{profile.location}}</p>
-         <p>Gender: {{profile.gender}}</p>
-         <p>About Me: {{profile.about_me}}</p>
-       </li>
-   </script>
+    <div class="container">
 
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Register for Crosshatch!</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+          <input id="email" type="email" class="form-control" placeholder="Email address" required autofocus>
+          <input id="password" type="password" class="form-control" placeholder="Password">
+          <input id="surname" type="text" placeholder="Last Name">
+          <input id="given_name" type="text" placeholder="First Name">
+          <input id="location" type="text" placeholder="City, State">
+          <input id="about_me" type="text" placeholder="About Me">
+          <input id="gender" type="text" placeholder="Gender">
+          <!-- <input id="profile_id" type="text" placeholder="profile id"> -->
 
-    <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+          <button id="register" class="btn btn-lg btn-primary btn-block" type="button">Sign Up</button>
+        </form>
+
+      </div> <!-- /container -->
+      <!-- <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script> -->
+      <script type="text/javascript" src="js/user.js" defer charset="utf-8"></script>
+      <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
   </body>
-</body>
 </html>
-
