@@ -1,10 +1,27 @@
-$(function()) {
+$(function() {
+  'use strict'
+  var sa = 'http://localhost:3000';
+
+// alert("I'm on line five");
+// $.ajax({
+//       url: sa + "/profiles/1"
+//       // + $('#profile_id').val(),
+//     }).done(function(response){
+//       alert(JSON.stringify(response));
+//      // $("#show-profile").html(
+//      //  JSON.stringify(response));
+//     //   profileShowTemplate({
+//     //   profile: response.profile
+//     // })
+//    }).fail(function(data){
+//     alert("fail");
+//     console.error(data);
+//   }); practice thingie
 
   // Profiles
-
   $("#profile-update").on('click', function(){
     $.ajax({
-      url: '/profiles/' + $("#profile_id").val(),
+      url: sa + '/profiles/' + $("#profile_id").val(),
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + $('#token').val()
@@ -31,19 +48,19 @@ $(function()) {
 
   $("#profile-show").on('click', function(event){
     $.ajax({
-      url: "/profiles/" + $('#profile_id').val(),
+      url: sa + "/profiles/" + $('#profile_id').val(),
     }).done(function(response){
      $("#show-profile").html(profileShowTemplate({
       profile: response.profile
     }));
    }).fail(function(data){
-    console.error(data);
+    window.location.href = '/login_page.html';
   });
   });
 
   $("#profile-destroy").on('click', function(){
     $.ajax({
-      url: '/profiles/' + $("#profile_id").val(),
+      url: sa + '/profiles/' + $("#profile_id").val(),
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + $('#token').val()
@@ -59,5 +76,5 @@ $(function()) {
 
 }); // end function
 
-// headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
-// ruby -run -e httpd . -p 5000
+// // headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
+// // ruby -run -e httpd . -p 5000

@@ -1,6 +1,5 @@
 $(function() {
   'use strict';
-  // var gameWatcher;
   var sa = 'http://localhost:3000';
 
 // User
@@ -30,7 +29,7 @@ $('#register').on('click', function(e){
        dataType: 'json',
        method: 'POST'
      }).done(function(data, textStatus, jqxhr){
-       $('#result').val(JSON.stringify(data));
+       // put that thing back
      }).fail(function(jqxhr, textStatus, errorThrown){
        $('#result').val('registration failed');
      });
@@ -38,6 +37,7 @@ $('#register').on('click', function(e){
      reader.readAsDataURL($('#picture')[0].files[0]);
   }); // end register
 
+  // separate register
 
 $('#login').on('click', function(e){
  $.ajax({
@@ -53,16 +53,18 @@ $('#login').on('click', function(e){
   dataType: 'json',
   method: 'POST'
 }).done(function(data, textStatus, jqxhr){
- $('#token').val(data.token);
-  console.log(data.token);
+ // $('#token').val(data.token);
+    window.location.href = '/profile.html'
 }).fail(function(jqxhr, textStatus, errorThrown){
- $('#result').val('login failed');
+  alert("Password incorrect, please try again.");
 });
 }); // end login
 
+// only for login page.html
+
 $("#update").on('click', function(){
   $.ajax({
-    url: '/users/' + $("#user-id").val(),
+    url: sa + '/users/' + $("#user-id").val(),
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + $('#token').val()
@@ -84,7 +86,7 @@ $("#update").on('click', function(){
 
 $("#destroy").on('click', function(){
   $.ajax({
-    url: '/users/' + $("#user-id").val(),
+    url: sa + '/users/' + $("#user-id").val(),
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + $('#token').val()
