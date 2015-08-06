@@ -9,7 +9,7 @@ $("#workshop-create").on('click', function(e){
       url: sa + '/workshops',
       method: 'POST',
       headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
       },
       data: {
         credentials: {
@@ -64,7 +64,7 @@ $("#workshop-update").on('click', function(){
     url: sa + '/workshops/' + $("#workshop-id").val(),
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + simpleStorage.get('token')
     }, // authenticate creator
     data: {
       credentials: {
@@ -89,7 +89,7 @@ $("#workshop-destroy").on('click', function(){
     url: sa + '/workshops/' + $("#workshop-id").val(),
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + simpleStorage.get('token')
     }, // authenticate creator not just logged in
   }).done(function(data){
     console.log("Deleted workshop!");
@@ -107,7 +107,7 @@ $("#attendance-create").on('click', function(e){
       url: sa + '/attendances',
       method: 'POST',
       headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
       },
       data: {
         credentials: {
@@ -132,6 +132,9 @@ var attendanceIndexTemplate = Handlebars.compile($('#attendance-index-template')
 $("#attendance-index").on('click', function(event){
   $.ajax({
     url: sa + "/attendances",
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    }
   }).done(function(data){
     $("#index-attendance").html(attendanceIndexTemplate({
       attendance: data
@@ -147,7 +150,7 @@ $("#attendance-update").on('click', function(){
     url: sa + '/attendances/' + $("#attendace-id").val(),
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + simpleStorage.get('token')
     }, // authenticate creator
     data: {
       credentials: {
@@ -170,7 +173,7 @@ $("#attendance-destroy").on('click', function(){
     url: sa + '/attendances/' + $("#attendance-id").val(),
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + $('#token').val()
+      Authorization: 'Token token=' + simpleStorage.get('token')
     }, // authenticate creator not just logged in
   }).done(function(data){
     console.log("Deleted attendance!");

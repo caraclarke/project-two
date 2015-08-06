@@ -12,7 +12,7 @@ $("#project-create").on('click', function(e){
       url: sa + '/projects',
       method: 'POST',
       headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
       },
       data: {
         credentials: {
@@ -66,7 +66,7 @@ $("#project-update").on('click', function(){
     url: sa + '/projects/' + $("#project-id").val(),
     method: 'PATCH',
     headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
     }, // authenticate creator
     data: {
       credentials: {
@@ -89,7 +89,7 @@ $("#project-destroy").on('click', function(){
     url: sa + '/projects/' + $("#project-id").val(),
     method: 'DELETE',
     headers: {
-        Authorization: 'Token token=' + $('#token').val()
+        Authorization: 'Token token=' + simpleStorage.get('token')
     }, // authenticate creator not just logged in
   }).done(function(data){
     console.log("Deleted project!");
