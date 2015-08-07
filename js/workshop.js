@@ -1,6 +1,6 @@
 $(function() {
   'use strict';
-  var sa = 'http://localhost:3000';
+  var sa = 'https://shielded-ocean-1335.herokuapp.com/';
 
 // Workshops
 
