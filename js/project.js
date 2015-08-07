@@ -5,7 +5,6 @@ $(function() {
   // Projects
 
 $("#project-create").on('click', function(e){
-  console.log(simpleStorage.get('token'));
   var projectReader = new FileReader();
   projectReader.onload = function(event) {
     var project_picture = event.target.result;
@@ -24,7 +23,7 @@ $("#project-create").on('click', function(e){
         }
       }
     }).done(function(data){
-      console.log("Created project!");
+      window.location.href = '/project_list.html';
     }).fail(function(data){
       console.error(data);
     });
@@ -92,7 +91,7 @@ $("#update-project").on('click', '#project-update', function(){
       project: {
         title: $('#project-title').val(),
         instructions: $('#project-instructions').val(),
-        profile_id: simpleStorage.get('profile_id')
+        profile_id: simpleStorage.get('profileId')
      }
    }
  }).done(function(data, textStatus, jqxhr){

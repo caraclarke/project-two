@@ -58,7 +58,7 @@ $('#login').on('click', function(e){
     simpleStorage.set('profileId', data.profile_id);
     window.location.href = '/index.html';
   }).fail(function(jqxhr, textStatus, errorThrown){
-    alert("Password incorrect, please try again.");
+    alert("Email or Password incorrect, please try again.");
   });
 }); // end login
 

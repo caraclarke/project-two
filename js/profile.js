@@ -3,10 +3,27 @@ $(function() {
   var sa = 'http://localhost:3000';
 
   // Profiles
-  $("#profile-update").on('click', function(e){
-    var id = $(this).data('id');
+
+  var showEditProfileForm = function (context) {
+    var profileUpdateTemplate = Handlebars.compile($('#profile-update-template').html());
+    $("#update-profile").html(profileUpdateTemplate(context.profile));
+  };
+
+  var hideEditProfileForm = function () {
+    $("#update-profile").hide();
+  };
+
+  $('#show-profile').on('click', '#profile-update', function(data){
     $.ajax({
-      url: sa + '/profiles/' + id,
+      url: sa + '/profiles/' + simpleStorage.get('profileId')
+    }).done(function(data){
+      showEditProfileForm(data);
+    });
+  });
+
+  $("#update-profile").on('click', '#profile-submit-update' ,function(event){
+    $.ajax({
+      url: sa + '/profiles/' + simpleStorage.get('profileId'),
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -18,14 +35,17 @@ $(function() {
          location: $('#location').val(),
          about_me: $('#about_me').val(),
          gender: $('#gender').val(),
-         profile_id: $('#profile_id').val(),
-         user_id: $('#user-id').val()
+         profile_id: simpleStorage.get('profileId'),
+         user_id: simpleStorage.get('userId')
        }
      }
    }).done(function(data, textStatus, jqxhr){
-     $('#result').val(JSON.stringify(data));
+    console.log(data);
+     var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
+      $("#show-profile").html(profileShowTemplate(data.profile));
+     hideEditProfileForm();
    }).fail(function(jqxhr, textStatus, errorThrown){
-     $('#result').val('profile update failed');
+     console.error(errorThrown);
    });
   }); // end update
 
@@ -45,19 +65,19 @@ $(function() {
   });
   });
 
-  $("#profile-destroy").on('click', function(){
+  $("#show-profile").on('click', '#profile-destroy', function(data){
     $.ajax({
-      url: sa + '/profiles/' + $("#profile_id").val(),
+      url: sa + '/users/' + simpleStorage.get('userId'),
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
       },
     }).done(function(data){
-      console.log("Deleted profile!");
+      console.log('user deleted');
     }).fail(function(data){
       console.error(data);
     });
-  }); // end destroy
+  });
 
   // End profiles
 

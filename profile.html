@@ -44,8 +44,8 @@
   <div id="profilehtml">
 
   <div id="show-profile"></div>
+  <div id="update-profile"></div>
   <button id="profile-show">Profile</button>
-
   </div>
 
     <!-- Handlebars -->
@@ -56,9 +56,22 @@
          <p>Location: {{location}}</p>
          <p>Gender: {{gender}}</p>
          <p>About Me: {{about_me}}</p>
+         <button id="profile-update">Update Profile</button>
+         <button id="profile-destroy">Delete Profile</button>
        </li>
    </script>
 
+
+   <!-- Update Profile form -->
+
+   <script id="profile-update-template" type="text/x-handlebars-template">
+      <input id="given_name" type="text" placeholder="First name">
+      <input id="surname" type="text" placeholder="Last name">
+      <input id="location" type="text" placeholder="Location">
+      <input id="gender" type="text" placeholder="Gender">
+      <input id="about_me" type="text" placeholder="About Me:">
+      <button id="profile-submit-update">Submit Update</button>
+   </script>
 
     <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
