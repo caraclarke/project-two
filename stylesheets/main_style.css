@@ -172,3 +172,11 @@ form textarea {
 #profilehtml {
   margin: 250px;
 }
+
+#index-project img {
+  width: 200px;
+}
+
+#show-project img {
+  width: 200px;
+}

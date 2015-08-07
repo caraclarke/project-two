@@ -42,40 +42,48 @@
   </div> <!-- end navbar -->
 
   <label for="project">Project Buttons: </label>
-   <input id="project-create" type="button" value="Project Create">
-   <input id="project-update" type="button" value="Project Update">
-   <input id="project-show" type="button" value=" Project Show">
-   <input id="project-list" type="button" value="Project List">
-   <input id="project-destroy" type="button" value="Project Destroy">
+   <button id="project-create">Create</button>
+   <button id="project-update">Update</button>
+   <button id="project-show">Show</button>
+   <button id="project-index">Index</button>
+   <button id="project-destroy">Destroy</button>
 
   <!-- Handlebars -->
-  <div id="show-project">
+  <div id="show-project"></div>
     <script id="project-show-template" type="text/x-handlebars-template">
      <li>
-       <h4>{{project.title}}</h4>
-       <p>{{project.project_image}}</p>
-       <p>Instructions: {{project.instructions}}</p>
+       <h4>{{title}}</h4>
+       <img src="{{project_image}}"></img>
+       <p>Instructions: {{instructions}}</p>
+        <button id="project-edit" data-id="{{id}}">Edit</button>
+        <button id="project-destroy" data-id="{{id}}">Destroy</button>
      </li>
    </script>
-  </div>
 
-  <div id="index-project">
+
+  <div id="index-project"></div>
    <script id="project-index-template" type="text/x-handlebars-template">
+   <ul>
    {{#each projects}}
      <li>
-       <h4>{{project.title}}</h4>
-       <p>{{project.project_image}}</p>
-       <p>Instructions: {{project.instructions}}</p>
+       <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
+       <img src="{{project_image}}"></img>
+       <p>Instructions: {{instructions}}</p>
      </li>
     {{/each}}
+    </ul>
    </script>
-  </div>
+
+   <div id="update-project"></div>
+   <script id="project-update-template" type="text/x-handlebars-template">
+      <input id="project-title" type="text" placeholder="project title">
+      <input id="project-instructions" type="text" placeholder="project instructions">
+      <button id="project-update" data-id="{{id}}">Update</button>
+   </script>
+
 
    <footer class="blog-footer">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    <p>
       <a href="#">Back to top</a>
-    </p>
   </footer>
 
 
@@ -84,6 +92,6 @@
       <script src="bower_components/simpleStorage/simpleStorage.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="./js/handlebars-v3.0.3.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/project.js"></script>
   </body>
 </html>

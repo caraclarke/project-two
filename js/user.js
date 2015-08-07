@@ -39,24 +39,27 @@ $('#register').on('click', function(e){
   }); // end register
 
 $('#login').on('click', function(e){
- $.ajax({
-  url: sa + '/login',
-  contentType: 'application/json',
-  processData: false,
-  data: JSON.stringify({
-   credentials: {
-     email: $('#email').val(),
-     password: $('#password').val()
-   }
- }),
-  dataType: 'json',
-  method: 'POST'
-}).done(function(data, textStatus, jqxhr){
+  e.preventDefault();
+  $.ajax({
+    url: sa + '/login',
+    contentType: 'application/json',
+    processData: false,
+    data: JSON.stringify({
+     credentials: {
+       email: $('#email').val(),
+       password: $('#password').val()
+     }
+   }),
+    dataType: 'json',
+    method: 'POST'
+  }).done(function(data, textStatus, jqxhr){
     simpleStorage.set('token', data.token);
+    simpleStorage.set('userId', data.user_id);
+    simpleStorage.set('profileId', data.profile_id);
     window.location.href = '/index.html';
-}).fail(function(jqxhr, textStatus, errorThrown){
-  alert("Password incorrect, please try again.");
-});
+  }).fail(function(jqxhr, textStatus, errorThrown){
+    alert("Password incorrect, please try again.");
+  });
 }); // end login
 
 // only for login page.html

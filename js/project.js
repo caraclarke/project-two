@@ -5,6 +5,7 @@ $(function() {
   // Projects
 
 $("#project-create").on('click', function(e){
+  console.log(simpleStorage.get('token'));
   var projectReader = new FileReader();
   projectReader.onload = function(event) {
     var project_picture = event.target.result;
@@ -15,10 +16,10 @@ $("#project-create").on('click', function(e){
         Authorization: 'Token token=' + simpleStorage.get('token')
       },
       data: {
-        credentials: {
+        project: {
           title: $('#project-title').val(),
           instructions: $('#project-instructions').val(),
-          profile_id: $('profile_id').val(),
+          profile_id: simpleStorage.get('profileId'),
           project_image: project_picture
         }
       }
@@ -31,70 +32,95 @@ $("#project-create").on('click', function(e){
   projectReader.readAsDataURL($('#project-picture')[0].files[0]);
 }); // end project create
 
-$("#project-show").on('click', function(event){
-  $.ajax({ // change this button
-    url: sa + "/projects/" + $("#project-id").val(),
-  }).done(function(response){
-    var projectShowTemplate = Handlebars.compile($('#project-show-template').html()); // look at profile
-    var newHTML = projectShowTemplate;
-    $("#show-project").html(newHTML);
+var getProject = function (element) {
+  return $.ajax({
+    url: sa + "/projects/" + element.data('id'),
+  })
+};
+
+var showProject = function (context) {
+  $('#index-project').hide();
+  var projectShowTemplate = Handlebars.compile($('#project-show-template').html());
+  $("#show-project").html(projectShowTemplate(context.project));
+};
+
+$("#index-project").on('click', 'h4 > a', function(event){
+  event.preventDefault();
+  getProject($(this)).done(function(data){
+    showProject(data);
   }).fail(function(data){
     console.error(data);
   });
 }); // end project show
 
 $("#project-index").on('click', function(event){
+  event.preventDefault();
    $.ajax({
     url: sa + "/projects",
   }).done(function(data){
-    var projectIndexTemplate = Handlebars.compile($('#project-index-template').html()); // fix this
-      var newHTML = projectIndexTemplate;
-    $("#index-project").html(newHTML);
+    var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
+    $("#index-project").html(projectIndexTemplate(data));
+    console.log(data);
     }).fail(function(data){
     console.error(data);
   });
 }); // end project index
 
-$("#project-update").on('click', function(){
+var showEditProjectForm = function (context) {
+  var projectUpdateTemplate = Handlebars.compile($('#project-update-template').html());
+  $("#update-project").html(projectUpdateTemplate(context.project));
+};
+
+var hideEditProjectForm = function () {
+  $("#update-project").hide();
+};
+
+$("#show-project").on('click', '#project-edit', function(data){
+  getProject($(this)).done(function(data) {
+    showEditProjectForm(data);
+ });
+}); // end project edit show
+
+$("#update-project").on('click', '#project-update', function(){
   $.ajax({
-    url: sa + '/projects/' + $("#project-id").val(),
+    url: sa + '/projects/' + $(this).data('id'),
     method: 'PATCH',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
-    }, // authenticate creator
+    },
     data: {
-      credentials: {
+      project: {
         title: $('#project-title').val(),
         instructions: $('#project-instructions').val(),
-        profile_id: $('profile_id').val()
+        profile_id: simpleStorage.get('profile_id')
      }
    }
  }).done(function(data, textStatus, jqxhr){
-   $("#show-project").html(projectDisplayTemplate({
-      project: response.project
-    })); // may not work?
+    showProject(data);
+    hideEditProjectForm();
  }).fail(function(jqxhr, textStatus, errorThrown){
-      console.error(errorThrown);
+    console.error(errorThrown);
  });
 }); // end project update
 
-$("#project-destroy").on('click', function(){
+$("#show-project").on('click', '#project-destroy', function(data){
   $.ajax({
-    url: sa + '/projects/' + $("#project-id").val(),
+    url: sa + '/projects/' + $(this).data('id'),
     method: 'DELETE',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
-    }, // authenticate creator not just logged in
-  }).done(function(data){
-    console.log("Deleted project!");
+    },
+  }).done(function(data) {
+    alert("Project deleted");
+    window.location.href = '/project_list.html';
+
   }).fail(function(data){
     console.error(data);
   });
-}); // end project destroy
+});
 
 // end Projects
 
-// headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
 // ruby -run -e httpd . -p 5000
 
 }); // end page
