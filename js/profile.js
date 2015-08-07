@@ -12,7 +12,7 @@ $(function() {
         Authorization: 'Token token=' + simpleStorage.get('token')
       },
       data: {
-        credentials: {
+        profile: {
          surname: $('#surname').val(),
          given_name: $('#given_name').val(),
          location: $('#location').val(),
@@ -29,20 +29,19 @@ $(function() {
    });
   }); // end update
 
-  $('#profile-index').on('click', function(e){
+  $('#profile-show').on('click', function(event){
+    event.preventDefault();
     $.ajax({
-      url: sa + "/profiles?limit=me",
+      url: sa + "/profiles/" + simpleStorage.get('profileId'),
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
-      },
-    }).done(function(response){
-      var profileShowTemplate = Handlebars.compile($("#profile").html());
-      var newHTML = profileShowTemplate({profile: response.profile});
-      $("#index-profile").html(newHTML);
-
-      console.log(response);
+        },
+    }).done(function(data){
+      var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
+      $("#show-profile").html(profileShowTemplate(data.profile));
    }).fail(function(data){
-    window.location.href = '/login_page.html';
+    console.error(data);
+    // window.location.href = '/login_page.html';
   });
   });
 
