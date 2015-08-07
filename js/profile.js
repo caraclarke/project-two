@@ -3,9 +3,10 @@ $(function() {
   var sa = 'http://localhost:3000';
 
   // Profiles
-  $("#profile-update").on('click', function(){
+  $("#profile-update").on('click', function(e){
+    var id = $(this).data('id');
     $.ajax({
-      url: sa + '/profiles/' + $("#profile_id").val(),
+      url: sa + '/profiles/' + id,
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -28,15 +29,18 @@ $(function() {
    });
   }); // end update
 
-  var profileShowTemplate = Handlebars.compile($("#profile").html());
-
-  $("#profile-show").on('click', function(event){
+  $('#profile-index').on('click', function(e){
     $.ajax({
-      url: sa + "/profiles/" + $('#profile_id').val(),
+      url: sa + "/profiles?limit=me",
+      headers: {
+        Authorization: 'Token token=' + simpleStorage.get('token')
+      },
     }).done(function(response){
-     $("#show-profile").html(profileShowTemplate({
-      profile: response.profile
-    }));
+      var profileShowTemplate = Handlebars.compile($("#profile").html());
+      var newHTML = profileShowTemplate({profile: response.profile});
+      $("#index-profile").html(newHTML);
+
+      console.log(response);
    }).fail(function(data){
     window.location.href = '/login_page.html';
   });
@@ -60,5 +64,4 @@ $(function() {
 
 }); // end function
 
-// // headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
 // // ruby -run -e httpd . -p 5000

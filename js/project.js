@@ -24,7 +24,6 @@ $("#project-create").on('click', function(e){
       }
     }).done(function(data){
       console.log("Created project!");
-      $('#result').val(JSON.stringify(data)); // update to display in handlebars
     }).fail(function(data){
       console.error(data);
     });
@@ -32,31 +31,26 @@ $("#project-create").on('click', function(e){
   projectReader.readAsDataURL($('#project-picture')[0].files[0]);
 }); // end project create
 
-var projectShowTemplate = Handlebars.compile($('#project-show-template').html());
-
 $("#project-show").on('click', function(event){
   $.ajax({ // change this button
     url: sa + "/projects/" + $("#project-id").val(),
-  }).done(function(workshop){
-    $("#show-project").html(projectShowTemplate({
-      project: response.project
-    }));
+  }).done(function(response){
+    var projectShowTemplate = Handlebars.compile($('#project-show-template').html()); // look at profile
+    var newHTML = projectShowTemplate;
+    $("#show-project").html(newHTML);
   }).fail(function(data){
     console.error(data);
   });
 }); // end project show
 
-  var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
-
 $("#project-index").on('click', function(event){
-  $.ajax({
+   $.ajax({
     url: sa + "/projects",
   }).done(function(data){
-    $("#index-project").html(projectDisplayTemplate({
-      project: data
-    }));
-    });
-  }).fail(function(data){
+    var projectIndexTemplate = Handlebars.compile($('#project-index-template').html()); // fix this
+      var newHTML = projectIndexTemplate;
+    $("#index-project").html(newHTML);
+    }).fail(function(data){
     console.error(data);
   });
 }); // end project index

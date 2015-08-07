@@ -7,6 +7,9 @@ body {
   color: #5a5a5a;
 }
 
+#show-profile {
+  color: black;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -33,10 +36,6 @@ body {
   width: auto;
 }
 
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
 /* Carousel base class */
 .carousel {
   height: 500px;
@@ -62,9 +61,6 @@ body {
 }
 
 
-/* MARKETING CONTENT
--------------------------------------------------- */
-
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin-bottom: 20px;
@@ -79,8 +75,7 @@ body {
 }
 
 
-/* Featurettes
-------------------------- */
+/* Featurettes */
 
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
@@ -94,8 +89,7 @@ body {
 }
 
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
+/* RESPONSIVE CSS */
 
 @media (min-width: 768px) {
   /* Navbar positioning foo */
@@ -173,4 +167,8 @@ form textarea {
 
 .submit {
   text-align: center;
+}
+
+#profilehtml {
+  margin: 250px;
 }

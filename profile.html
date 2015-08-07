@@ -27,21 +27,13 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="about_us.html">About</a></li>
               <li><a href="login_page.html">Login</a></li>
               <li><a href="register.html">Register</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu">
                   <li><a href="project_list.html">Projects</a></li>
-                  <li><a href="workshop_list.html">Workshops</a></li>
                   <li><a href="create_listing.html">Make a post</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Your Account</li>
+                  <!-- <li role="separator" class="divider"></li> -->
                   <li><a href="profile.html">My Profile</a></li>
                   <li><a href="contact_us.html">Contact Us</a></li>
-                </ul>
-              </li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -52,19 +44,26 @@
           </div>
         </div>
       </nav>
-
     </div>
   </div> <!-- end navbar -->
 
-  <!-- Handlebars -->
-  <div id="show-profile"></div>
+  <div id="profilehtml">
+
+    <ul id="index-profile">
+      </ul>
+
+    <!-- <input id="profile-email" placeholder="Profile Email"> -->
+    <button id="profile-index">Profile</button>
+  </div>
+
+    <!-- Handlebars -->
    <script id="profile" type="text/x-handlebars-template">
        <li>
-         <h4>{{profile.given_name}} {{profile.surname}}</h4>
-         <p>{{profile.profile_picture}}</p>
-         <p>Location: {{profile.location}}</p>
-         <p>Gender: {{profile.gender}}</p>
-         <p>About Me: {{profile.about_me}}</p>
+         <h4>{{given_name}} {{surname}}</h4>
+         <p>{{profile_picture}}</p>
+         <p>Location: {{location}}</p>
+         <p>Gender: {{gender}}</p>
+         <p>About Me: {{about_me}}</p>
        </li>
    </script>
 

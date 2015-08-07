@@ -27,21 +27,13 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="about_us.html">About</a></li>
               <li><a href="login_page.html">Login</a></li>
               <li><a href="register.html">Register</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu">
                   <li><a href="project_list.html">Projects</a></li>
-                  <li><a href="workshop_list.html">Workshops</a></li>
                   <li><a href="create_listing.html">Make a post</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Your Account</li>
+                  <!-- <li role="separator" class="divider"></li> -->
                   <li><a href="profile.html">My Profile</a></li>
                   <li><a href="contact_us.html">Contact Us</a></li>
-                </ul>
-              </li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -52,57 +44,40 @@
           </div>
         </div>
       </nav>
-
     </div>
   </div> <!-- end navbar -->
 
-  <!-- Workshop -->
   <div class="contact-form">
-    <h2>Create Workshop Post</h2>
 
-    <form action="./process-page.html" method="post" enctype="multipart/form-data" name="CrossHatch Workshop Form">
-
+  <h2>Create Project Post</h2>
+    <p>Title and add instructions for your project below. Add some photos, have fun!</p>
+  <!--  <form enctype="multipart/form-data" name="Create Project Form">
       <div class="table">
-        <p>Title: <input id="workshop-title" name="Workshop Title" type="text" value="" size="50"></p>
-      </div>
-      <div class="table">
-        <p>Location: <input id="workshop-location" name="Location" type="text" value="" size="50"></p>
-      </div>
-      <div class="table">
-        <p>About: <input id="workshop-about" name="About" type="text" value="" size="50"></p>
-      </div>
-      <div class="table">
-        <p>Contact Information: <input id="workshop-contact" name="Conact Information" type="text" value="" size="50"></p>
-      </div>
-      <div class="table">
-        <p>Repeats: <input id="workshop-repeats" name="Repeats" type="text" value="" size="50"></p> <!-- make me a check yes or no? -->
-      </div><br>
-      <div class="submit">
-        <p><input name="workshop-create" type="submit" value="Submit">
-        <input name="workshop-reset" type="reset" value="Reset"></p> <!-- clear fields -->
-        </div>
-      </form>
-    </div>
-
-    <!-- DIY Project -->
-    <div class="contact-form">
-    <h2>Create DIY Project Post</h2>
-
-      <form action="./process-page.html" method="post" enctype="multipart/form-data" name="CrossHatch Project Form">
-
-        <div class="table">
           <p>Title: <input id="project-title" name="Project  Title" type="text" value="" size="50"></p>
         </div>
+        <input id="project-picture" type="file" value="Project Picture">
         <div class="comment">
-          <p>Instructions: <br><textarea id="project-instructions" name="Instructions" cols="20" rows="40">Instructions Here:</textarea></p>
+          <p>Instructions: <br><textarea id="project-instructions" name="Instructions" placeholder="Instructions here:" cols="20" rows="40"></textarea></p>
         </div>
-        <input id="project-picture" type="file" value="Project Picture"><br>
-        <div class="submit">
-          <p><input name="project-submit" type="submit" value="Submit">
-            <input name="project-reset" type="reset" value="Reset"></p>
-          </div>
-        </form>
       </div>
+      <div class="submit">
+        <p><button id="project-create" name="submit" type="submit" value="Create Project">Create Project</button>
+        <button id="reset-form" name="reset" type="reset" value="Reset">Reset Form</button></p>
+      </div>
+    </form> -->
+
+    <input id="project-title" type="text" placeholder="project title">
+    <input id="" type="text" placeholder="project title">
+   <input id="project-instructions" type="text" placeholder="project instructions">
+   <input id="project-picture" type="file" value="Project Picture"><br>
+
+   <input id="project-create" type="button" value="Project Create">
+   <input id="project-update" type="button" value="Project Update">
+   <input id="project-show" type="button" value=" Project Show">
+   <input id="project-list" type="button" value="Project List">
+   <input id="project-destroy" type="button" value="Project Destroy">
+
+  </div>
 
       <div id="footer"> <!-- Footer -->
         <p>&copy; CrossHatch</p>
@@ -112,5 +87,7 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
       <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+      <script type="text/javascript" src="js/project.js" defer charset="utf-8"></script>
+      <script type="text/javascript" src="./js/handlebars-v3.0.3.js"></script>
     </body>
     </html>

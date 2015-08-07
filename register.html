@@ -7,7 +7,7 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/login_style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -27,21 +27,13 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="about_us.html">About</a></li>
               <li><a href="login_page.html">Login</a></li>
               <li><a href="register.html">Register</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
-                <ul class="dropdown-menu">
                   <li><a href="project_list.html">Projects</a></li>
-                  <li><a href="workshop_list.html">Workshops</a></li>
                   <li><a href="create_listing.html">Make a post</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Your Account</li>
+                  <!-- <li role="separator" class="divider"></li> -->
                   <li><a href="profile.html">My Profile</a></li>
                   <li><a href="contact_us.html">Contact Us</a></li>
-                </ul>
-              </li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
@@ -52,32 +44,32 @@
           </div>
         </div>
       </nav>
-
     </div>
   </div> <!-- end navbar -->
 
     <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Register for Crosshatch!</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-          <input id="email" type="email" class="form-control" placeholder="Email address" required autofocus>
-          <input id="password" type="password" class="form-control" placeholder="Password">
-          <input id="surname" type="text" placeholder="Last Name">
-          <input id="given_name" type="text" placeholder="First Name">
-          <input id="location" type="text" placeholder="City, State">
-          <input id="about_me" type="text" placeholder="About Me">
-          <input id="gender" type="text" placeholder="Gender">
-          <input id="profile-picture" type="file" value="Profile Picture"><br> <!-- may need to be renaimed just picture check AJAX -->
-          <!-- <input id="profile_id" type="text" placeholder="profile id"> -->
+    <div class="contact-form">
+    <h2>Register with Crosshatch!</h2>
 
-          <button id="register" class="btn btn-lg btn-primary btn-block" type="button">Sign Up</button>
-        </form>
+      <input id="email" type="text" placeholder="email">
+      <input id="password" type="password" placeholder="password">
+      <input id="user-id" type="text" placeholder="user id"><br>
+
+      <input id="surname" type="text" placeholder="surname">
+      <input id="given_name" type="text" placeholder="given_name">
+      <input id="location" type="text" placeholder="location">
+      <input id="about_me" type="text" placeholder="about me">
+      <input id="gender" type="text" placeholder="gender">
+      <input id="picture" type="file"><br>
+
+      <button id="register" type="button" value="Register">Register</button>
+
+    </div>
 
       </div> <!-- /container -->
       <!-- <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script> -->
       <script type="text/javascript" src="js/user.js" defer charset="utf-8"></script>
-      <script type="text/javascript" src="./js/handlebars-v3.0.3.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <script src="bower_components/simpleStorage/simpleStorage.js"></script>

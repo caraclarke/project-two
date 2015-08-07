@@ -3,18 +3,18 @@ $(function() {
   var sa = 'http://localhost:3000';
 
 // User
+
 $('#register').on('click', function(e){
   var reader = new FileReader();
   reader.onload = function(event){
     var picture = event.target.result;
     $.ajax({
       url: sa + '/users',
-       contentType: 'application/json',  // to send as JSON, must specify content type
+       contentType: 'application/json',
        processData: false,
        data: JSON.stringify({
          credentials: {
            email: $('#email').val(),
-           username: $('#username').val(),
            password: $('#password').val(),
            password_confirmation: $('#password').val(),
            surname: $('#surname').val(),
@@ -22,7 +22,6 @@ $('#register').on('click', function(e){
            location: $('#location').val(),
            about_me: $('#about_me').val(),
            gender: $('#gender').val(),
-           user_id: $("#user-id").val(),
            profile_picture: picture
          }
        }),
@@ -30,14 +29,14 @@ $('#register').on('click', function(e){
        method: 'POST'
      }).done(function(data, textStatus, jqxhr){
        simpleStorage.set('token', data.token);
+       console.log("I worked");
+       window.location.href = '/login_page.html';
      }).fail(function(jqxhr, textStatus, errorThrown){
-       $('#result').val('registration failed');
+       console.log('registration failed');
      });
    }
-     reader.readAsDataURL($('#picture')[0].files[0]);
+    reader.readAsDataURL($('#picture')[0].files[0]);
   }); // end register
-
-  // separate register
 
 $('#login').on('click', function(e){
  $.ajax({
@@ -54,7 +53,7 @@ $('#login').on('click', function(e){
   method: 'POST'
 }).done(function(data, textStatus, jqxhr){
     simpleStorage.set('token', data.token);
-    window.location.href = '/profile.html';
+    window.location.href = '/index.html';
 }).fail(function(jqxhr, textStatus, errorThrown){
   alert("Password incorrect, please try again.");
 });

@@ -30,29 +30,29 @@ $("#workshop-create").on('click', function(e){
   projectReader.readAsDataURL($('#project-picture')[0].files[0]);
 }); // end workshop create
 
-var workshopShowTemplate = Handlebars.compile($('#workshop-show-template').html());
 
 $("#workshop-show").on('click', function(event){
   $.ajax({ // change this button
     url: sa + "/workshops/" + $("#workshop-id").val(),
   }).done(function(workshop){
-    $("#show-workshop").html(workshopShowTemplate({
-      workshop: response.workshop
-    }));
+    var workshopShowTemplate = Handlebars.compile($('#workshop-show-template').html());
+    var newHTML = workshopShowTemplate;
+    $("#show-workshop").html(newHTML);
+    console.log(JSON.stringify(data));
   }).fail(function(data){
     console.error(data);
   });
 }); // end workshop show
 
-var workshopIndexTemplate = Handlebars.compile($('#workshop-index-template').html());
-
 $("#workshop-index").on('click', function(event){
   $.ajax({
     url: sa + "/workshops",
   }).done(function(data){
-    $("#index-workshop").html(workshopIndexTemplate({
-      workshop: data
-    }));
+    var workshopIndexTemplate = Handlebars.compile($('#workshop-index-template').html());
+    var newHTML = workshopIndexTemplate;
+    $("#index-workshop").html(newHTML);
+
+    console.log(JSON.stringify(data));
   });
 }).fail(function(data){
   console.error(data);
@@ -76,9 +76,11 @@ $("#workshop-update").on('click', function(){
       }
     }
   }).done(function(data, textStatus, jqxhr){
-   $("#show-workshop").html(workshopShowTemplate({
-    workshop: response.workshop
-    })); // may not work?
+    var workshopShowTemplate = Handlebars.compile($('#workshop-show-template').html());
+    var newHTML = workshopShowTemplate;
+    $("#show-workshop").html(newHTML);
+
+    console.log(JSON.stringify(data));
  }).fail(function(jqxhr, textStatus, errorThrown){
   console.error(errorThrown);
 });
@@ -118,16 +120,16 @@ $("#attendance-create").on('click', function(e){
       }
     }).done(function(data){
       console.log("Created attendance!");
-      $("#index-project").html(projectDisplayTemplate({
-        project: data
-      }));
+      var attendanceIndexTemplate = Handlebars.compile($('#attendance-index-template').html());
+      var newHTML = attendanceIndexTemplate;
+      $("#index-attendance").html(newHTML);
+
+      console.log(JSON.stringify(data));
     }).fail(function(data){
       console.error(data);
     });
   }
 }); // end attendance create
-
-var attendanceIndexTemplate = Handlebars.compile($('#attendance-index-template').html());
 
 $("#attendance-index").on('click', function(event){
   $.ajax({
@@ -136,9 +138,11 @@ $("#attendance-index").on('click', function(event){
       Authorization: 'Token token=' + simpleStorage.get('token')
     }
   }).done(function(data){
-    $("#index-attendance").html(attendanceIndexTemplate({
-      attendance: data
-    }));
+    var attendanceIndexTemplate = Handlebars.compile($('#attendance-index-template').html());
+    var newHTML = attendanceIndexTemplate;
+    $("#index-attendance").html(newHTML);
+
+    console.log(JSON.stringify(data));
   });
 }).fail(function(data){
   console.error(data);
@@ -160,9 +164,11 @@ $("#attendance-update").on('click', function(){
       }
     }
   }).done(function(data, textStatus, jqxhr){
-   $("#index-attendance").html(attendanceIndexTemplate({
-      attendance: data
-    }));
+   var attendanceIndexTemplate = Handlebars.compile($('#attendance-index-template').html());
+    var newHTML = attendanceIndexTemplate;
+    $("#index-attendance").html(newHTML);
+
+    console.log(JSON.stringify(data));
  }).fail(function(jqxhr, textStatus, errorThrown){
   console.error(errorThrown);
 });
