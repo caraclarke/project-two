@@ -30,7 +30,7 @@ $('#register').on('click', function(e){
      }).done(function(data, textStatus, jqxhr){
        simpleStorage.set('token', data.token);
        console.log("I worked");
-       window.location.href = '/login_page.html';
+       window.location.href = sa + '/login_page.html';
      }).fail(function(jqxhr, textStatus, errorThrown){
        console.log('registration failed');
      });
