@@ -1,6 +1,6 @@
 $(function() {
   'use strict';
-  var sa = 'https://shielded-ocean-1335.herokuapp.com/';
+  var sa = 'https://shielded-ocean-1335.herokuapp.com';
 
 // Workshops
 
