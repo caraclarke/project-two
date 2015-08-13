@@ -8,6 +8,7 @@
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/register_specific.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -41,26 +42,37 @@
 
     <div class="container">
 
-    <div class="contact-form">
-    <h2>Register with Crosshatch!</h2>
+     <div class="center-block">
+        <h2>Register with Crosshatch!</h2>
 
-      <input id="email" type="text" placeholder="email">
-      <input id="password" type="password" placeholder="password">
-      <input id="user-id" type="text" placeholder="user id"><br>
+          <p>
+            <input id="email" type="text" placeholder="email">
+            <input id="password" type="password" placeholder="password">
+          </p>
 
-      <input id="surname" type="text" placeholder="surname">
-      <input id="given_name" type="text" placeholder="given_name">
-      <input id="location" type="text" placeholder="location">
-      <input id="about_me" type="text" placeholder="about me">
-      <input id="gender" type="text" placeholder="gender">
-      <input id="picture" type="file"><br>
+          <p>
+            <input id="given_name" type="text" placeholder="First Name">
+            <input id="surname" type="text" placeholder="Last Name">
+          </p>
 
-      <button id="register" type="button" value="Register">Register</button>
+          <p>
+            <input id="location" type="text" placeholder="Location">
+            <input id="gender" type="text" placeholder="Gender">
+          </p>
+          <p>
+            <textarea id="about_me" type="text" placeholder="About me"></textarea>
+          </p>
 
-    </div>
+          <p>
+          <input id="picture" type="file">
+          </p>
 
-      </div> <!-- /container -->
-      <!-- <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script> -->
+          <button id="register" type="button" value="Register">Register</button>
+
+      </div>
+
+    </div> <!-- /container -->
+
       <script type="text/javascript" src="js/user.js" defer charset="utf-8"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

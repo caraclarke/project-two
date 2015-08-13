@@ -1,0 +1,14 @@
+/* project list */
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#project-button {
+  padding-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
