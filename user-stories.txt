@@ -1,0 +1,8 @@
+As a User, I want to create a profile, so that I can post classes
+As a User, I want to so that I can post projects
+As a User, I want to so that I can RSVP to things
+As a User, I want to log into my profile, so that I can edit posts
+As a User, I want to so that I can edit and add info to my profile
+
+As a Visitor, I want to search, so that I can find classes
+As a Visitor, I want to search, so that I can find projects

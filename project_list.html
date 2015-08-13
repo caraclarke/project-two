@@ -7,8 +7,8 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/profile_list_specific.css">
+ <!--  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css"> -->
+  <link rel="stylesheet" type="text/css" href="stylesheets/project_list_specific.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -42,33 +42,27 @@
 
   <div id="project-button" class="center-block">
     <label for="project">Project Buttons: </label>
-    <button id="project-index">Index</button>
+    <br><br><button id="project-index">Index</button>
    </div>
 
   <!-- Handlebars -->
   <div id="show-project" class="center-block"></div>
     <script id="project-show-template" type="text/x-handlebars-template">
-     <li>
        <h4>{{title}}</h4>
        <img src="{{project_image}}"></img>
        <p>Instructions: {{instructions}}</p>
         <button id="project-edit" data-id="{{id}}">Edit</button>
         <button id="project-destroy" data-id="{{id}}">Destroy</button>
-     </li>
    </script>
 
 
   <div id="index-project" class="center-block"></div>
    <script id="project-index-template" type="text/x-handlebars-template">
-   <ul>
    {{#each projects}}
-     <li>
        <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
        <img src="{{project_image}}"></img>
-       <p>Instructions: {{instructions}}</p>
-     </li>
+       <p>Instructions: {{instructions}}</p></li>
     {{/each}}
-    </ul>
    </script>
 
    <div id="update-project" class="center-block"></div>
