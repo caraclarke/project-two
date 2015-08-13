@@ -1,20 +1,54 @@
 /* register page */
 
+body {
+  margin-bottom: 60px;
+  background-image: url(../images/mountain-lake.jpeg);
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+button {
+  color: #000;
+}
+
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
 .center-block {
   margin: 100px auto 5px auto;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .container input {
   display: table-cell;
   vertical-align: top;
-  padding: 10px;
+  padding: 10px auto 0px auto;
   text-align: center;
+  content: center;
+}
+
+#picture {
   margin-left: auto;
   margin-right: auto;
-  content: center;
+  text-align: center;
 }
 
 textarea {
