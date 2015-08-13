@@ -8,6 +8,7 @@
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/profile_list_specific.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -39,13 +40,13 @@
     </div>
   </div> <!-- end navbar -->
 
-  <div id="project-button">
+  <div id="project-button" class="center-block">
     <label for="project">Project Buttons: </label>
     <button id="project-index">Index</button>
    </div>
 
   <!-- Handlebars -->
-  <div id="show-project"></div>
+  <div id="show-project" class="center-block"></div>
     <script id="project-show-template" type="text/x-handlebars-template">
      <li>
        <h4>{{title}}</h4>
@@ -57,7 +58,7 @@
    </script>
 
 
-  <div id="index-project"></div>
+  <div id="index-project" class="center-block"></div>
    <script id="project-index-template" type="text/x-handlebars-template">
    <ul>
    {{#each projects}}
@@ -70,7 +71,7 @@
     </ul>
    </script>
 
-   <div id="update-project"></div>
+   <div id="update-project" class="center-block"></div>
    <script id="project-update-template" type="text/x-handlebars-template">
       <input id="project-title" type="text" placeholder="project title">
       <input id="project-instructions" type="text" placeholder="project instructions">
