@@ -30,7 +30,7 @@ $(function() {
       },
       data: {
         profile: {
-         surname: $('#surname').val(),
+        surname: $('#surname').val(),
          given_name: $('#given_name').val(),
          location: $('#location').val(),
          about_me: $('#about_me').val(),
