@@ -111,7 +111,7 @@ $("#show-project").on('click', '#project-destroy', function(data){
     },
   }).done(function(data) {
     alert("Project deleted");
-    window.location.href = '/project_list.html';
+    window.location.href = 'project_list.html';
 
   }).fail(function(data){
     console.error(data);

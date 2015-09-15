@@ -105,4 +105,3 @@ $("#destroy").on('click', function(){
 
 // headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
 // ruby -run -e httpd . -p 5000
-
