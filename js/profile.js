@@ -1,5 +1,5 @@
 $(function() {
-  'use strict'
+  'use strict';
   var sa = 'https://shielded-ocean-1335.herokuapp.com';
 
   // Profiles
@@ -13,15 +13,15 @@ $(function() {
     $("#update-profile").hide();
   };
 
-  $('#show-profile').on('click', '#profile-update', function(data){
+  $('#show-profile').on('click', '#profile-update', function(data) {
     $.ajax({
       url: sa + '/profiles/' + simpleStorage.get('profileId')
-    }).done(function(data){
+    }).done(function(data) {
       showEditProfileForm(data);
     });
   });
 
-  $("#update-profile").on('click', '#profile-submit-update' ,function(event){
+  $("#update-profile").on('click', '#profile-submit-update' ,function(event) {
     $.ajax({
       url: sa + '/profiles/' + simpleStorage.get('profileId'),
       method: 'PATCH',
@@ -39,42 +39,42 @@ $(function() {
          user_id: simpleStorage.get('userId')
        }
      }
-   }).done(function(data, textStatus, jqxhr){
+   }).done(function(data, textStatus, jqxhr) {
     console.log(data);
      var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
       $("#show-profile").html(profileShowTemplate(data.profile));
      hideEditProfileForm();
-   }).fail(function(jqxhr, textStatus, errorThrown){
+   }).fail(function(jqxhr, textStatus, errorThrown) {
      console.error(errorThrown);
    });
   }); // end update
 
-  $('#profile-show').on('click', function(event){
+  $('#profile-show').on('click', function(event) {
     event.preventDefault();
     $.ajax({
       url: sa + "/profiles/" + simpleStorage.get('profileId'),
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
         },
-    }).done(function(data){
+    }).done(function(data) {
       var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
       $("#show-profile").html(profileShowTemplate(data.profile));
-   }).fail(function(data){
+   }).fail(function(data) {
     console.error(data);
     // window.location.href = '/login_page.html';
   });
   });
 
-  $("#show-profile").on('click', '#profile-destroy', function(data){
+  $("#show-profile").on('click', '#profile-destroy', function(data) {
     $.ajax({
       url: sa + '/users/' + simpleStorage.get('userId'),
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
       },
-    }).done(function(data){
+    }).done(function(data) {
       console.log('user deleted');
-    }).fail(function(data){
+    }).fail(function(data) {
       console.error(data);
     });
   });
@@ -82,5 +82,3 @@ $(function() {
   // End profiles
 
 }); // end function
-
-// // ruby -run -e httpd . -p 5000

@@ -4,9 +4,9 @@ $(function() {
 
 // User
 
-$('#register').on('click', function(e){
+$('#register').on('click', function(e) {
   var reader = new FileReader();
-  reader.onload = function(event){
+  reader.onload = function(event) {
     var picture = event.target.result;
     $.ajax({
       url: sa + '/users',
@@ -27,17 +27,17 @@ $('#register').on('click', function(e){
        }),
        dataType: 'json',
        method: 'POST'
-     }).done(function(data, textStatus, jqxhr){
+     }).done(function(data, textStatus, jqxhr) {
        simpleStorage.set('token', data.token);
        window.location.href = '/login_page.html';
-     }).fail(function(jqxhr, textStatus, errorThrown){
+     }).fail(function(jqxhr, textStatus, errorThrown) {
        console.log('registration failed');
      });
-   }
+   };
     reader.readAsDataURL($('#picture')[0].files[0]);
   }); // end register
 
-$('#login').on('click', function(e){
+$('#login').on('click', function(e) {
   e.preventDefault();
   $.ajax({
     url: sa + '/login',
@@ -51,19 +51,19 @@ $('#login').on('click', function(e){
    }),
     dataType: 'json',
     method: 'POST'
-  }).done(function(data, textStatus, jqxhr){
+  }).done(function(data, textStatus, jqxhr) {
     simpleStorage.set('token', data.token);
     simpleStorage.set('userId', data.user_id);
     simpleStorage.set('profileId', data.profile_id);
     window.location.href = '/index.html';
-  }).fail(function(jqxhr, textStatus, errorThrown){
+  }).fail(function(jqxhr, textStatus, errorThrown) {
     alert("Email or Password incorrect, please try again.");
   });
 }); // end login
 
 // only for login page.html
 
-$("#update").on('click', function(){
+$("#update").on('click', function() {
   $.ajax({
     url: sa + '/users/' + $("#user-id").val(),
     method: 'PATCH',
@@ -78,23 +78,23 @@ $("#update").on('click', function(){
        password_confirmation: $('#password').val()
      }
    }
- }).done(function(data, textStatus, jqxhr){
+ }).done(function(data, textStatus, jqxhr) {
    window.location.href = '/profile.html';
- }).fail(function(jqxhr, textStatus, errorThrown){
+ }).fail(function(jqxhr, textStatus, errorThrown) {
    $('#result').val('update failed');
  });
 }); // end update
 
-$("#destroy").on('click', function(){
+$("#destroy").on('click', function() {
   $.ajax({
     url: sa + '/users/' + $("#user-id").val(),
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')
     },
-  }).done(function(data){
+  }).done(function(data) {
     console.log("Deleted user!");
-  }).fail(function(data){
+  }).fail(function(data) {
     console.error(data);
   });
 }); // end destroy
@@ -102,6 +102,3 @@ $("#destroy").on('click', function(){
 // End users
 
 }); // end function
-
-// headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
-// ruby -run -e httpd . -p 5000
