@@ -27,8 +27,8 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="login_page.html">Login</a></li>
-              <li><a href="register.html">Register</a></li>
+              <li><a href="#" class="" id="show-login-modal">Login</a></li>
+              <li><a href="#" class="" id="show-register-modal">Register</a></li>
                   <li><a href="project_list.html">Projects</a></li>
                   <li><a href="create_listing.html">Make a post</a></li>
                   <!-- <li role="separator" class="divider"></li> -->
@@ -40,6 +40,83 @@
       </nav>
     </div>
   </div> <!-- end navbar -->
+
+  <!-- login modal -->
+  <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="login-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>&#x2716;</button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+
+        <div class="modal-body">
+          <form class="form center-block">
+            <div class="form-group">
+              <label for="login-email">Email: </label>
+              <input type="text" class="form-control input-md" placeholder="Email address" id="login-email">
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password: </label>
+              <input type="password" class="form-control input-md" placeholder="Password" id="login-password">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <div class="alert alert-danger hide text-left" role="alert" id="login-alert">
+            <p>We were unable to locate an account with that email address and password combination. Please try again.</p>
+          </div>
+          <button id="login-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+          <button type="button" class="btn btn-primary" id="login-button">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end login modal -->
+
+  <!-- register modal -->
+  <div id="register-modal" class="modal fade" tabindex="-1" role="dialog">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="register-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>&#x2716;</button>
+          <h4 class="modal-title">Register</h4>
+        </div>
+
+        <div class="modal-body">
+          <form class="form center-block">
+            <div class="form-group">
+            <label for="register-email">Email: </label><input type="text" class="form-control input-md" placeholder="Email address" id="register-email">
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password: </label><input type="password" class="form-control input-md" placeholder="Password" id="register-password">
+            </div>
+            <div class="form-group">
+              <label for="register-confirm-password">Confirm Password: </label><input type="password" class="form-control input-md" placeholder="Confirm password" id="register-confirm-password">
+            </div>
+            <div class="form-group" id="firstName-options">
+              <label for="register-firstName">First Name: </label><input type="text" class="form-control input-md" placeholder="First Name" id="register-firstName">
+            </div>
+            <div class="form-group" id="lastName-options">
+              <label for="register-lastName">Last Name: </label><input type="text" class="form-control input-md" placeholder="Last Name" id="register-lastName">
+            </div>
+            <div class="form-group" id="company-options">
+              <label for="register-company">Company: </label><input type="text" class="form-control input-md" placeholder="Company (optional)" id="register-company">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <div class="alert alert-danger hide text-left" role="alert" id="register-alert">
+            <p>We were unable to create your account. Please check you have filled in all areas and try again.</p>
+          </div>
+          <button id="register-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+          <button type="button" class="btn btn-primary" id="register-button">Register</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end register modal -->
 
       <!-- Carousel -->
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
