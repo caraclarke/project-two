@@ -29,7 +29,7 @@ $('#register').on('click', function(e){
        method: 'POST'
      }).done(function(data, textStatus, jqxhr){
        simpleStorage.set('token', data.token);
-       window.location.href = 'login_page.html';
+       window.location.href = '/login_page.html';
      }).fail(function(jqxhr, textStatus, errorThrown){
        console.log('registration failed');
      });
@@ -55,7 +55,7 @@ $('#login').on('click', function(e){
     simpleStorage.set('token', data.token);
     simpleStorage.set('userId', data.user_id);
     simpleStorage.set('profileId', data.profile_id);
-    window.location.href = 'index.html';
+    window.location.href = '/index.html';
   }).fail(function(jqxhr, textStatus, errorThrown){
     alert("Email or Password incorrect, please try again.");
   });
@@ -105,4 +105,3 @@ $("#destroy").on('click', function(){
 
 // headers: { Authorization: 'Token token=' + $('#token').val(cbb4ebd15c6f75836bb09584f9903e02) }
 // ruby -run -e httpd . -p 5000
-
