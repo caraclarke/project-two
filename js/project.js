@@ -10,7 +10,7 @@ $("#project-create").on('click', function(e) {
   projectReader.onload = function(event) {
     var project_picture = event.target.result;
       $.ajax({
-      url: sa + '/projects',
+      url: sa + 'project-two/projects',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
