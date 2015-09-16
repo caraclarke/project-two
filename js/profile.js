@@ -1,6 +1,7 @@
 $(function() {
   'use strict';
   var sa = 'https://shielded-ocean-1335.herokuapp.com';
+  var test = 'http://localhost:3000';
 
   // Profiles
 
@@ -40,7 +41,6 @@ $(function() {
        }
      }
    }).done(function(data, textStatus, jqxhr) {
-    console.log(data);
      var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
       $("#show-profile").html(profileShowTemplate(data.profile));
      hideEditProfileForm();
