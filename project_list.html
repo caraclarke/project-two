@@ -7,7 +7,7 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
- <!--  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css"> -->
+  <!--  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css"> -->
   <link rel="stylesheet" type="text/css" href="stylesheets/project_list_specific.css">
 </head>
 <body>
@@ -28,11 +28,11 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="login_page.html">Login</a></li>
-              <li><a href="register.html">Register</a></li>
-                  <li><a href="project_list.html">Projects</a></li>
-                  <li><a href="create_listing.html">Make a post</a></li>
-                  <li><a href="profile.html">My Profile</a></li>
+              <li><a href="#" class="" id="show-login-modal">Login</a></li>
+              <li><a href="#" class="" id="show-register-modal">Register</a></li>
+              <li><a href="project_list.html">Projects</a></li>
+              <li><a href="create_listing.html">Make a post</a></li>
+              <li><a href="profile.html">My Profile</a></li>
             </ul>
           </div>
         </div>
@@ -43,49 +43,49 @@
   <div id="project-button" class="center-block">
     <!-- <label for="project">Project Buttons: </label>
     <br><br><button id="project-index">Index</button> -->
-   </div>
+  </div>
 
   <!-- Handlebars -->
   <div id="show-project" class="center-block"></div>
 
-    <script id="project-show-template" type="text/x-handlebars-template">
-       <h4>{{title}}</h4>
-       <img src="{{project_image}}"></img>
-       <p>Instructions: {{instructions}}</p>
-        <button id="project-edit" data-id="{{id}}">Edit</button>
-        <button id="project-destroy" data-id="{{id}}">Destroy</button>
-   </script>
+  <script id="project-show-template" type="text/x-handlebars-template">
+    <h4>{{title}}</h4>
+    <img src="{{project_image}}"></img>
+    <p>Instructions: {{instructions}}</p>
+    <button id="project-edit" data-id="{{id}}">Edit</button>
+    <button id="project-destroy" data-id="{{id}}">Destroy</button>
+  </script>
 
 
   <div id="index-project" class="center-block"></div>
 
-   <script id="project-index-template" type="text/x-handlebars-template">
-   {{#each projects}}
-       <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
-       <img src="{{project_image}}"></img>
-       <p>Instructions: {{instructions}}</p></li>
+  <script id="project-index-template" type="text/x-handlebars-template">
+    {{#each projects}}
+    <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
+    <img src="{{project_image}}"></img>
+    <p>Instructions: {{instructions}}</p></li>
     {{/each}}
-   </script>
+  </script>
 
-   <div id="update-project" class="center-block"></div>
+  <div id="update-project" class="center-block"></div>
 
-   <script id="project-update-template" type="text/x-handlebars-template">
-      <input id="project-title" type="text" placeholder="project title">
-      <input id="project-instructions" type="text" placeholder="project instructions">
-      <button id="project-update" data-id="{{id}}">Update</button>
-   </script>
+  <script id="project-update-template" type="text/x-handlebars-template">
+    <input id="project-title" type="text" placeholder="project title">
+    <input id="project-instructions" type="text" placeholder="project instructions">
+    <button id="project-update" data-id="{{id}}">Update</button>
+  </script>
 
 
-   <footer class="blog-footer">
+  <footer class="blog-footer">
     <a href="#">Back to top</a>
   </footer>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="bower_components/simpleStorage/simpleStorage.js"></script>
-      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./js/handlebars-v3.0.3.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/handlebars-v4.0.2.js"></script>
   <script src="js/project.js"></script>
-  </body>
+</body>
 </html>
