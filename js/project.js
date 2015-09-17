@@ -1,4 +1,5 @@
-var test = 'http://localhost:3000';
+var sa = 'https://shielded-ocean-1335.herokuapp.com';
+// var test = 'http://localhost:3000';
 
 var indexProjects = function (data) {
   var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
@@ -22,7 +23,6 @@ var indexProjectRequest = function () {
 
 $(function() {
   'use strict';
-  var sa = 'https://shielded-ocean-1335.herokuapp.com';
   // var test = 'http://localhost:3000';
 
 // Projects

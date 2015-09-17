@@ -1,4 +1,5 @@
-var test = 'http://localhost:3000';
+var sa = 'https://shielded-ocean-1335.herokuapp.com';
+// var test = 'http://localhost:3000';
 
 var showProfileInformationTemplate = function (data) {
   var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
@@ -23,7 +24,6 @@ var showProfile = function() {
 
 $(function() {
   'use strict';
-  var sa = 'https://shielded-ocean-1335.herokuapp.com';
 
   // Profiles
 
