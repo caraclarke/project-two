@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CrossHatch: Find Your Fun</title>
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/listing.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CrossHatch: Find Your Fun</title>
+	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/listing.css">
 </head>
 <body>
-  <div class="navbar-wrapper">
-    <div class="container">
+	<div class="navbar-wrapper">
+		<div class="container">
 
 			<nav class="navbar navbar-inverse navbar-static-top">
 				<div class="container">
@@ -37,31 +37,31 @@
 					</div>
 				</div>
 			</nav>
-			</div>
-		</div> <!-- end navbar -->
+		</div>
+	</div> <!-- end navbar -->
+	
+	<div class="create-post center-block">
 
-  <div class="create-post center-block">
+		<h2>Create Project Post</h2>
+		<p>Title and add instructions for your project below. Add some photos, have fun!</p>
 
-  <h2>Create Project Post</h2>
-    <p>Title and add instructions for your project below. Add some photos, have fun!</p>
+		<input id="project-title" type="text" placeholder="Project Title"><br><br>
+		<textarea id="project-instructions" type="text" placeholder="Project Instructions"></textarea>
+		<input id="project-picture" type="file" value="Project Picture"><br>
 
-    <input id="project-title" type="text" placeholder="Project Title"><br><br>
-   <textarea id="project-instructions" type="text" placeholder="Project Instructions"></textarea>
-   <input id="project-picture" type="file" value="Project Picture"><br>
+		<button id="project-create" type="button" value="Project Create">Create Project</button>
 
-   <button id="project-create" type="button" value="Project Create">Create Project</button>
+	</div>
 
-  </div>
+	<footer class="footer"> <!-- Footer -->
+		<p>&copy; CrossHatch</p>
+	</footer>
 
-      <footer class="footer"> <!-- Footer -->
-          <p>&copy; CrossHatch</p>
-      </footer>
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-      <script src="bower_components/simpleStorage/simpleStorage.js"></script>
-      <script type="text/javascript" src="js/project.js" defer charset="utf-8"></script>
-      <script type="text/javascript" src="./js/handlebars-v4.0.2.js"></script>
-    </body>
-    </html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/simpleStorage/simpleStorage.js"></script>
+	<script type="text/javascript" src="js/project.js" defer charset="utf-8"></script>
+	<script type="text/javascript" src="./js/handlebars-v4.0.2.js"></script>
+</body>
+</html>

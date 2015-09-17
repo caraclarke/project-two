@@ -14,73 +14,73 @@
     <div class="container">
 
       <nav class="navbar navbar-inverse navbar-static-top">
-    		<div class="container">
-    			<div class="navbar-header">
-    				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-    					<span class="sr-only">Toggle navigation</span>
-    					<span class="icon-bar"></span>
-    					<span class="icon-bar"></span>
-    					<span class="icon-bar"></span>
-    				</button>
-    				<a class="navbar-brand" href="index.html">CrossHatch</a>
-    			</div>
-    			<div id="navbar" class="navbar-collapse collapse">
-    				<ul class="nav navbar-nav">
-    					<li class="active"><a href="index.html">Home</a></li>
-    					<li><a href="#" class="" id="show-login-modal">Login</a></li>
-    					<li><a href="#" class="" id="show-register-modal">Register</a></li>
-    					<li><a href="project_list.html">Projects</a></li>
-    					<li><a href="create_listing.html">Make a post</a></li>
-    					<li><a href="profile.html">My Profile</a></li>
-    				</ul>
-    			</div>
-    		</div>
-    	</nav>
-    	</div>
-    </div> <!-- end navbar -->
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">CrossHatch</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#" class="" id="show-login-modal">Login</a></li>
+              <li><a href="#" class="" id="show-register-modal">Register</a></li>
+              <li><a href="project_list.html">Projects</a></li>
+              <li><a href="create_listing.html">Make a post</a></li>
+              <li><a href="profile.html">My Profile</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div> <!-- end navbar -->
 
   <div id="profilehtml">
 
-  <div id="show-profile"></div>
-  <div id="update-profile"></div>
+    <div id="show-profile"></div>
+    <div id="update-profile"></div>
 
-  <!-- <button id="profile-show">View Profile</button><br><br> -->
-  <br><button id="workshop-show" class="hide">View Workshops</button>
-  <button id="attendance-show" class="hide">View RSVPs</button>
-  <button id="project-show">View Projects</button>
+    <!-- <button id="profile-show">View Profile</button><br><br> -->
+    <br><button id="workshop-show" class="hide">View Workshops</button>
+    <button id="attendance-show" class="hide">View RSVPs</button>
+    <button id="project-show">View Projects</button>
   </div>
 
-    <!-- Handlebars -->
-   <script id="profile-show-template" type="text/x-handlebars-template">
-       <li>
-         <h4>{{given_name}} {{surname}}</h4>
-         <img src="{{profile_picture}}"></img>
-         <p>Location: {{location}}</p>
-         <p>Gender: {{gender}}</p>
-         <p>About Me: {{about_me}}</p>
-         <button id="profile-update">Update Profile</button>
-         <button id="profile-destroy">Delete Profile</button>
-       </li>
-   </script>
+  <!-- Handlebars -->
+  <script id="profile-show-template" type="text/x-handlebars-template">
+    <li>
+      <h4>{{given_name}} {{surname}}</h4>
+      <img src="{{profile_picture}}"></img>
+      <p>Location: {{location}}</p>
+      <p>Gender: {{gender}}</p>
+      <p>About Me: {{about_me}}</p>
+      <button id="profile-update">Update Profile</button>
+      <button id="profile-destroy">Delete Profile</button>
+    </li>
+  </script>
 
 
-   <!-- Update Profile form -->
+  <!-- Update Profile form -->
 
-   <script id="profile-update-template" type="text/x-handlebars-template">
-      <input id="given_name" type="text" placeholder="First name">
-      <input id="surname" type="text" placeholder="Last name">
-      <input id="location" type="text" placeholder="Location">
-      <input id="gender" type="text" placeholder="Gender">
-      <input id="about_me" type="text" placeholder="About Me:">
-      <button id="profile-submit-update">Submit Update</button>
-   </script>
+  <script id="profile-update-template" type="text/x-handlebars-template">
+    <input id="given_name" type="text" placeholder="First name">
+    <input id="surname" type="text" placeholder="Last name">
+    <input id="location" type="text" placeholder="Location">
+    <input id="gender" type="text" placeholder="Gender">
+    <input id="about_me" type="text" placeholder="About Me:">
+    <button id="profile-submit-update">Submit Update</button>
+  </script>
 
-    <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/simpleStorage/simpleStorage.js"></script>
-    <script type="text/javascript" src="./js/handlebars-v4.0.2.js"></script>
-  </body>
+  <script type="text/javascript" src="js/profile.js" defer charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/simpleStorage/simpleStorage.js"></script>
+  <script type="text/javascript" src="./js/handlebars-v4.0.2.js"></script>
+</body>
 </body>
 </html>
