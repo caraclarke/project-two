@@ -1,16 +1,39 @@
+var test = 'http://localhost:3000';
+
+var indexProjects = function (data) {
+  var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
+  $("#index-project").html(projectIndexTemplate(data));
+};
+
+var indexProjectRequest = function () {
+  // $("#project-index").on('load', function(event) { // loading all projects on page load
+    // event.preventDefault();
+     $.ajax({
+      url: test + "/projects",
+    }).done(function(data) {
+      // var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
+      // $("#index-project").html(projectIndexTemplate(data));
+      indexProjects(data);
+      }).fail(function(data) {
+      console.error(data);
+    });
+  // }); // end project index
+};
+
 $(function() {
   'use strict';
   var sa = 'https://shielded-ocean-1335.herokuapp.com';
-  var test = 'http://localhost:3000';
+  // var test = 'http://localhost:3000';
 
-  // Projects
+// Projects
+  indexProjectRequest();
 
 $("#project-create").on('click', function(e) {
   var projectReader = new FileReader();
   projectReader.onload = function(event) {
     var project_picture = event.target.result;
       $.ajax({
-      url: sa + 'project-two/projects',
+      url: test + '/projects',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -24,7 +47,7 @@ $("#project-create").on('click', function(e) {
         }
       }
     }).done(function(data) {
-      window.location.href = '/project_list.html';
+      window.location.href = 'project-two/project-two/project_list.html';
     }).fail(function(data) {
       console.error(data);
     });
@@ -34,7 +57,7 @@ $("#project-create").on('click', function(e) {
 
 var getProject = function (element) {
   return $.ajax({
-    url: sa + "/projects/" + element.data('id'),
+    url: test + "/projects/" + element.data('id'),
   });
 };
 
@@ -50,21 +73,8 @@ $("#index-project").on('click', 'h4 > a', function(event) {
     showProject(data);
   }).fail(function(data) {
     console.error(data);
-  });
+  }); // showing a specific project from the index list
 }); // end project show
-
-$("#project-index").on('click', function(event) {
-  event.preventDefault();
-   $.ajax({
-    url: sa + "/projects",
-  }).done(function(data) {
-    var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
-    $("#index-project").html(projectIndexTemplate(data));
-    console.log(data);
-    }).fail(function(data) {
-    console.error(data);
-  });
-}); // end project index
 
 var showEditProjectForm = function (context) {
   var projectUpdateTemplate = Handlebars.compile($('#project-update-template').html());
@@ -83,7 +93,7 @@ $("#show-project").on('click', '#project-edit', function(data) {
 
 $("#update-project").on('click', '#project-update', function() {
   $.ajax({
-    url: sa + '/projects/' + $(this).data('id'),
+    url: test + '/projects/' + $(this).data('id'),
     method: 'PATCH',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -105,14 +115,14 @@ $("#update-project").on('click', '#project-update', function() {
 
 $("#show-project").on('click', '#project-destroy', function(data) {
   $.ajax({
-    url: sa + '/projects/' + $(this).data('id'),
+    url: test + '/projects/' + $(this).data('id'),
     method: 'DELETE',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
     },
   }).done(function(data) {
     alert("Project deleted");
-    window.location.href = 'project_list.html';
+    window.location.href = 'project-two/project_list.html';
 
   }).fail(function(data) {
     console.error(data);
