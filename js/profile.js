@@ -1,9 +1,33 @@
+var test = 'http://localhost:3000';
+
+var showProfileInformationTemplate = function (data) {
+  var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
+  $("#show-profile").html(profileShowTemplate(data.profile));
+};
+
+var showProfile = function() {
+  $.ajax({
+    url: sa + "/profiles/" + simpleStorage.get('profileId'),
+    headers: {
+      Authorization: 'Token token=' + simpleStorage.get('token')
+    },
+  }).done(function(data) {
+    // var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
+    // $("#show-profile").html(profileShowTemplate(data.profile));
+    showProfileInformationTemplate(data);
+  }).fail(function(data) {
+    console.error(data);
+    // window.location.href = '/login_page.html';
+  });
+};
+
 $(function() {
   'use strict';
   var sa = 'https://shielded-ocean-1335.herokuapp.com';
-  var test = 'http://localhost:3000';
 
   // Profiles
+
+  showProfile();
 
   var showEditProfileForm = function (context) {
     var profileUpdateTemplate = Handlebars.compile($('#profile-update-template').html());
@@ -48,22 +72,6 @@ $(function() {
      console.error(errorThrown);
    });
   }); // end update
-
-  $('#profile-show').on('click', function(event) {
-    event.preventDefault();
-    $.ajax({
-      url: sa + "/profiles/" + simpleStorage.get('profileId'),
-      headers: {
-        Authorization: 'Token token=' + simpleStorage.get('token')
-        },
-    }).done(function(data) {
-      var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
-      $("#show-profile").html(profileShowTemplate(data.profile));
-   }).fail(function(data) {
-    console.error(data);
-    // window.location.href = '/login_page.html';
-  });
-  });
 
   $("#show-profile").on('click', '#profile-destroy', function(data) {
     $.ajax({
