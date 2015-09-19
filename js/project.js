@@ -21,6 +21,21 @@ var indexProjectRequest = function () {
   // }); // end project index
 };
 
+Handlebars.registerHelper('grouped_each', function(every, context, options) {
+  var out = "", subcontext = [], i;
+  if (context && context.length > 0) {
+    for (i = 0; i < context.length; i++) {
+      if (i > 0 && i % every === 0) {
+        out += options.fn(subcontext);
+        subcontext = [];
+      }
+      subcontext.push(context[i]);
+    }
+    out += options.fn(subcontext);
+  }
+  return out;
+});
+
 $(function() {
   'use strict';
   // var test = 'http://localhost:3000';
@@ -123,7 +138,6 @@ $("#show-project").on('click', '#project-destroy', function(data) {
   }).done(function(data) {
     alert("Project deleted");
     window.location.href = 'project-two/project_list.html';
-
   }).fail(function(data) {
     console.error(data);
   });
