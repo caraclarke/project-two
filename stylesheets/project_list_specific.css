@@ -10,6 +10,10 @@ body {
   color: #fff;
 }
 
+input {
+  color: #000;  
+}
+
 .navbar-wrapper {
   position: absolute;
   top: 0;
