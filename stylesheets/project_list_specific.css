@@ -10,6 +10,9 @@ body {
   text-align: center;
   color: #000;
 }
+p {
+  color: #000;
+}
 
 input {
   color: #000;
