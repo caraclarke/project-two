@@ -57,7 +57,7 @@ $("#project-create").on('click', function(e) {
         }
       }
     }).done(function(data) {
-      window.location.href = 'project-two/project_list.html';
+      window.location.href = 'project_list.html';
     }).fail(function(data) {
       console.error(data);
     });
@@ -132,7 +132,7 @@ $("#show-project").on('click', '#project-destroy', function(data) {
     },
   }).done(function(data) {
     alert("Project deleted");
-    window.location.href = 'project-two/project_list.html';
+    window.location.href = 'project_list.html';
   }).fail(function(data) {
     console.error(data);
   });

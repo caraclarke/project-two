@@ -89,7 +89,7 @@ $("#update").on('click', function() {
      }
    }
  }).done(function(data, textStatus, jqxhr) {
-   window.location.href = 'project-two/profile.html';
+   window.location.href = 'profile.html';
  }).fail(function(jqxhr, textStatus, errorThrown) {
    $('#result').val('update failed');
  });
