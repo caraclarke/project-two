@@ -54,6 +54,36 @@ body {
   /*fixed stretching problem with height: auto;*/
 }
 
+/* custom button */
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-danger.outline {
+    border: 2px solid #d43f3a;
+    color: #d9534f;
+}
+.btn-danger.outline:hover, .btn-danger.outline:focus, .btn-danger.outline:active, .btn-danger.outline.active, .open > .dropdown-toggle.btn-danger {
+    color: #d9534f;
+    border-color: #d43f3a;
+}
+.btn-danger.outline:active, .btn-danger.outline.active {
+    border-color: #d43f3a;
+    color: #d9534f;
+    box-shadow: none;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
 /* Featurettes */
 
 /* Thin out the marketing headings */
