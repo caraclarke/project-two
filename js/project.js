@@ -7,19 +7,14 @@ var indexProjects = function (data) {
 };
 
 var indexProjectRequest = function () {
-  // $("#project-index").on('load', function(event) { // loading all projects on page load
-    // event.preventDefault();
      $.ajax({
       url: sa + "/projects",
     }).done(function(data) {
-      // var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
-      // $("#index-project").html(projectIndexTemplate(data));
       indexProjects(data);
       }).fail(function(data) {
       console.error(data);
     });
-  // }); // end project index
-};
+}; // end project index
 
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
   var out = "", subcontext = [], i;
@@ -62,7 +57,7 @@ $("#project-create").on('click', function(e) {
         }
       }
     }).done(function(data) {
-      window.location.href = 'project-two/project-two/project_list.html';
+      window.location.href = 'project-two/project_list.html';
     }).fail(function(data) {
       console.error(data);
     });
