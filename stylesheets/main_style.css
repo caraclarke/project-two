@@ -57,19 +57,22 @@ body {
 /* Featurettes */
 
 /* Thin out the marketing headings */
+
 .featurette-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
   text-align: left;
+  margin-left: -10%;
 }
 
 .lead {
   text-align: left;
+  margin-left: -10%;
 }
 
 .mini-image {
-  margin-bottom: 10%;
+  margin-bottom: -10%;
   margin-top: 10%;
   margin-right: -10%;
 }
@@ -108,7 +111,7 @@ body {
 
 @media (min-width: 992px) {
   .featurette-heading {
-    margin-top: 120px;
+    margin-top: 175px;
   }
 }
 
