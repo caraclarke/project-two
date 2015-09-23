@@ -54,32 +54,57 @@ body {
   /*fixed stretching problem with height: auto;*/
 }
 
+/* custom button */
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+.btn-danger.outline {
+    border: 2px solid #d43f3a;
+    color: #d9534f;
+}
+.btn-danger.outline:hover, .btn-danger.outline:focus, .btn-danger.outline:active, .btn-danger.outline.active, .open > .dropdown-toggle.btn-danger {
+    color: #d9534f;
+    border-color: #d43f3a;
+}
+.btn-danger.outline:active, .btn-danger.outline.active {
+    border-color: #d43f3a;
+    color: #d9534f;
+    box-shadow: none;
+}
 
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
-.marketing h2 {
-  font-weight: normal;
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
 }
-.marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
 
 /* Featurettes */
 
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-
 /* Thin out the marketing headings */
+
 .featurette-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
+  text-align: left;
+  margin-left: -10%;
+}
+
+.lead {
+  text-align: left;
+  margin-left: -10%;
+}
+
+.mini-image {
+  margin-bottom: -10%;
+  margin-top: 10%;
+  margin-right: -10%;
 }
 
 /* responsive */
@@ -116,7 +141,7 @@ body {
 
 @media (min-width: 992px) {
   .featurette-heading {
-    margin-top: 120px;
+    margin-top: 175px;
   }
 }
 
@@ -162,13 +187,4 @@ textarea {
 
 #show-project img {
   width: 200px;
-}
-
-/* footer */
-
-.footer {
-  position: absolute;
-  margin: 30px 0px 0px 0px;
-  width: 100%;
-  height: 60px;
 }
