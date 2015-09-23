@@ -40,7 +40,6 @@ $('#register-button').on('click', function(e) {
        simpleStorage.set('token', data.token);
        $("#register-modal").modal('hide');
        $("#login-modal").modal('show');
-       // window.location.href = '/login_page.html';
      }).fail(function(jqxhr, textStatus, errorThrown) {
        console.log('registration failed');
      });
@@ -90,7 +89,7 @@ $("#update").on('click', function() {
      }
    }
  }).done(function(data, textStatus, jqxhr) {
-   window.location.href = '/profile.html';
+   window.location.href = 'project-two/profile.html';
  }).fail(function(jqxhr, textStatus, errorThrown) {
    $('#result').val('update failed');
  });

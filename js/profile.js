@@ -13,12 +13,9 @@ var showProfile = function() {
       Authorization: 'Token token=' + simpleStorage.get('token')
     },
   }).done(function(data) {
-    // var profileShowTemplate = Handlebars.compile($("#profile-show-template").html());
-    // $("#show-profile").html(profileShowTemplate(data.profile));
     showProfileInformationTemplate(data);
   }).fail(function(data) {
     console.error(data);
-    // window.location.href = '/login_page.html';
   });
 };
 
