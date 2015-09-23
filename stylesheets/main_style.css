@@ -54,32 +54,24 @@ body {
   /*fixed stretching problem with height: auto;*/
 }
 
-
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.marketing h2 {
-  font-weight: normal;
-}
-.marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-
 /* Featurettes */
-
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
 
 /* Thin out the marketing headings */
 .featurette-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
+  text-align: left;
+}
+
+.lead {
+  text-align: left;
+}
+
+.mini-image {
+  margin-bottom: 10%;
+  margin-top: 10%;
+  margin-right: -10%;
 }
 
 /* responsive */
