@@ -48,15 +48,17 @@
 
   <!-- index template  -->
    <script id="project-index-template" type="text/x-handlebars-template">
-     {{#grouped_each 3 projects}}
-       <div class="row">
-         {{#each this}}
-           <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
-           <img src="{{project_image}}"></img>
-         {{/each}}
-       </div>
-      {{/grouped_each}}
-   </script>
+    {{#grouped_each 3 projects}}
+    <div class="row">
+      {{#each this }}
+      <div class="col-sm-4 item">
+        <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
+        <img src="{{project_image}}"></img>
+      </div>
+      {{/each}}
+    </div>
+    {{/grouped_each}}
+  </script>
 
     <!-- show template -->
     <script id="project-show-template" type="text/x-handlebars-template">
