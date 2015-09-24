@@ -50,10 +50,16 @@ img {
   border-radius:0;
 }
 
-#show-profile {
-  margin: 25px;
+ #profilehtml {
+  margin: 100px 0 25px 15px;
+  /*margin-top: 100px;
+  margin-bottom: 25px;*/
 }
 
 #update-profile {
   margin: 15px;
+}
+
+#project-display {
+  margin: 100px 0 0 10px;
 }
