@@ -23,7 +23,7 @@ var indexProjects = function (data) {
 
 var indexProjectRequest = function () {
      $.ajax({
-      url: sa + "/projects",
+      url: sa + "/projects/", // unique AJAX call
     }).done(function(data) {
       indexProjects(data);
       }).fail(function(data) {
