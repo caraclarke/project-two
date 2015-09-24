@@ -53,12 +53,12 @@ $(function() {
       data: {
         profile: {
         surname: $('#surname').val(),
-         given_name: $('#given_name').val(),
-         location: $('#location').val(),
-         about_me: $('#about_me').val(),
-         gender: $('#gender').val(),
-         profile_id: simpleStorage.get('profileId'),
-         user_id: simpleStorage.get('userId')
+        given_name: $('#given_name').val(),
+        location: $('#location').val(),
+        about_me: $('#about_me').val(),
+        gender: $('#gender').val(),
+        profile_id: simpleStorage.get('profileId'),
+        user_id: simpleStorage.get('userId')
        }
      }
    }).done(function(data, textStatus, jqxhr) {
