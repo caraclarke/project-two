@@ -1,21 +1,6 @@
 var sa = 'https://shielded-ocean-1335.herokuapp.com';
 // var test = 'http://localhost:3000';
 
-var indexProjects = function (data) {
-  var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
-  $("#index-project").html(projectIndexTemplate(data));
-};
-
-var indexProjectRequest = function () {
-     $.ajax({
-      url: sa + "/projects",
-    }).done(function(data) {
-      indexProjects(data);
-      }).fail(function(data) {
-      console.error(data);
-    });
-}; // end project index
-
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
   var out = "", subcontext = [], i;
   if (context && context.length > 0) {
@@ -30,6 +15,21 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
   }
   return out;
 });
+
+var indexProjects = function (data) {
+  var projectIndexTemplate = Handlebars.compile($('#project-index-template').html());
+  $("#index-project").html(projectIndexTemplate(data));
+};
+
+var indexProjectRequest = function () {
+     $.ajax({
+      url: sa + "/projects",
+    }).done(function(data) {
+      indexProjects(data);
+      }).fail(function(data) {
+      console.error(data);
+    });
+}; // end project index
 
 $(function() {
   'use strict';
