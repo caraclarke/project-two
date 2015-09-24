@@ -40,6 +40,89 @@
   </div>
   <!-- end navbar -->
 
+  <!-- login modal -->
+  <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="login-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>&#x2716;</button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+
+        <div class="modal-body">
+          <form class="form center-block">
+            <div class="form-group">
+              <label for="login-email">Email: </label>
+              <input type="text" class="form-control input-md" placeholder="Email address" id="login-email">
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password: </label>
+              <input type="password" class="form-control input-md" placeholder="Password" id="login-password">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <div class="alert alert-danger hide text-left" role="alert" id="login-alert">
+            <p>We were unable to locate an account with that email address and password combination. Please try again.</p>
+          </div>
+          <button id="login-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+          <button type="button" class="btn btn-primary" id="login-button">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end login modal -->
+
+  <!-- register modal -->
+  <div id="register-modal" class="modal fade" tabindex="-1" role="dialog">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="register-modal-x" type="button" class="close x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span>&#x2716;</button>
+          <h4 class="modal-title">Register</h4>
+        </div>
+
+        <div class="modal-body">
+          <form class="form center-block">
+            <div class="form-group">
+              <label for="register-email">Email: </label><input type="text" class="form-control input-md" placeholder="Email address" id="register-email">
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password: </label><input type="password" class="form-control input-md" placeholder="Password" id="register-password">
+            </div>
+            <div class="form-group">
+              <label for="register-confirm-password">Confirm Password: </label><input type="password" class="form-control input-md" placeholder="Confirm password" id="register-confirm-password">
+            </div>
+            <div class="form-group" id="given_name-options">
+              <label for="register-given_name">First Name: </label><input type="text" class="form-control input-md" placeholder="First Name" id="register-given_name">
+            </div>
+            <div class="form-group" id="surname-options">
+              <label for="register-surname">Last Name: </label><input type="text" class="form-control input-md" placeholder="Last Name" id="register-surname">
+            </div>
+            <div class="form-group" id="location-options">
+              <label for="register-location">Location: </label><input type="text" class="form-control input-md" placeholder="Location" id="register-location">
+            </div>
+            <div class="form-group" id="about_me-options">
+              <label for="register-about_me">About Me: </label><input type="text" class="form-control input-md" placeholder="About Me" id="register-about_me">
+            </div>
+            <div class="form-group" id="gender-options">
+              <label for="register-gender">Gender: </label><input type="text" class="form-control input-md" placeholder="Gender" id="register-gender">
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <div class="alert alert-danger hide text-left" role="alert" id="register-alert">
+            <p>We were unable to create your account. Please check you have filled in all areas and try again.</p>
+          </div>
+          <button id="register-modal-close" type="button" class="btn btn-default x" data-dismiss="modal" aria-label="Close">Close</button>
+          <button type="button" class="btn btn-primary" id="register-button">Register</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end register modal -->
+
   <div id="profilehtml">
     <div id="show-profile"></div>
     <div id="update-profile"></div>
