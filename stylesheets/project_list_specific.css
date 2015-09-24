@@ -10,6 +10,7 @@ body {
   text-align: center;
   color: #000;
 }
+
 p {
   color: #000;
 }
@@ -37,6 +38,9 @@ input {
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+}
+.navbar-wrapper {
+  margin-top: 20px;
 }
 
 .center-block {
