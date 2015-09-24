@@ -8,6 +8,10 @@ body {
   color: black;
 }
 
+#login-modal, #register-modal {
+  text-align: left;
+}
+
 /* navbar */
 
 .navbar-wrapper {
