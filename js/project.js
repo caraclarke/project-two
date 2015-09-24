@@ -77,7 +77,7 @@ var showProject = function (context) {
   $("#show-project").html(projectShowTemplate(context.project));
 };
 
-$("#index-project").on('click', 'h4 > a', function(event) {
+$("#index-project").on('click', 'h3 > a', function(event) {
   event.preventDefault();
   getProject($(this)).done(function(data) {
     showProject(data);

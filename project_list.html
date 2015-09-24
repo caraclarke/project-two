@@ -7,7 +7,9 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/project_list_specific.css">
 </head>
 <body>
@@ -136,7 +138,7 @@
     <div class="row">
       {{#each this }}
       <div class="col-sm-4 item">
-        <h4><a href="#" data-id="{{id}}">{{title}}</a></h4>
+        <h3><a href="#" data-id="{{id}}">{{title}}</a></h3>
         <img src="{{project_image}}"></img>
       </div>
       {{/each}}
@@ -146,7 +148,7 @@
 
     <!-- show template -->
     <script id="project-show-template" type="text/x-handlebars-template">
-       <h4>{{title}}</h4>
+       <h3>{{title}}</h3>
        <img src="{{project_image}}"></img>
        <p>Instructions: {{instructions}}</p>
         <button id="project-edit" data-id="{{id}}">Edit</button>

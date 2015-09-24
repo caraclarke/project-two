@@ -7,7 +7,10 @@
   <title>CrossHatch: Find Your Fun</title>
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="stylesheets/main_style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/profile_specific.css">
 </head>
 <body>
   <div class="navbar-wrapper">
@@ -135,27 +138,26 @@
 
   <!-- Handlebars -->
   <script id="profile-show-template" type="text/x-handlebars-template">
-    <li>
-      <h4>{{given_name}} {{surname}}</h4>
-      <img src="{{profile_picture}}"></img>
+      <h1>{{given_name}} {{surname}}</h1>
+      <img src="{{profile_picture}}" class="img-circle"></img>
       <p>Location: {{location}}</p>
       <p>Gender: {{gender}}</p>
-      <p>About Me: {{about_me}}</p>
-      <button id="profile-update">Update Profile</button>
-      <button id="profile-destroy">Delete Profile</button>
-    </li>
+      <p>About Me: {{about_me}}</p><br>
+      <button id="profile-update" class="btn btn-primary btn-sm sharp">Update Profile</button><br><br>
+      <button id="profile-destroy" class="btn btn-primary btn-sm sharp">Delete Profile</button>
   </script>
 
 
   <!-- Update Profile form -->
 
   <script id="profile-update-template" type="text/x-handlebars-template">
-    <input id="given_name" type="text" placeholder="First name">
-    <input id="surname" type="text" placeholder="Last name">
-    <input id="location" type="text" placeholder="Location">
-    <input id="gender" type="text" placeholder="Gender">
-    <input id="about_me" type="text" placeholder="About Me:">
-    <button id="profile-submit-update">Submit Update</button>
+    <h2>Update Profile Information</h2>
+    <p><input id="given_name" type="text" placeholder="First name">
+    <input id="surname" type="text" placeholder="Last name"></p>
+    <p><input id="location" type="text" placeholder="Location"></p>
+    <p><input id="gender" type="text" placeholder="Gender"></p>
+    <p><input id="about_me" type="text" placeholder="About Me:"></p>
+    <button id="profile-submit-update" class="btn btn-primary btn-sm sharp">Submit Update</button>
   </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
