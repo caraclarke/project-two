@@ -139,7 +139,7 @@
       {{#each this }}
       <div class="col-sm-4 item">
         <h3><a href="#" data-id="{{id}}">{{title}}</a></h3>
-        <img src="{{project_image}}"></img>
+        <img class="img-rounded" src="{{project_image}}"></img>
       </div>
       {{/each}}
     </div>
@@ -149,7 +149,7 @@
     <!-- show template -->
     <script id="project-show-template" type="text/x-handlebars-template">
        <h3>{{title}}</h3>
-       <img src="{{project_image}}"></img>
+       <img class="img-rounded" src="{{project_image}}"></img>
        <p>Instructions: {{instructions}}</p>
         <button id="project-edit" data-id="{{id}}">Edit</button>
         <button id="project-destroy" data-id="{{id}}">Destroy</button>
