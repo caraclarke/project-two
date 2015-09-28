@@ -18,6 +18,10 @@ h1, h2, h3, h4 {
 
 img {
   margin-left: 25px;
+  height: auto;
+  width: auto;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .btn {
