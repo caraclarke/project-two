@@ -18,7 +18,7 @@ $('#register-button').on('click', function(e) {
   // reader.onload = function(event) {
   //   var picture = event.target.result;
     $.ajax({
-      url: sa + '/users',
+      url: test + '/users',
        contentType: 'application/json',
        processData: false,
        data: JSON.stringify({
@@ -50,7 +50,7 @@ $('#register-button').on('click', function(e) {
 $('#login-button').on('click', function(e) {
   e.preventDefault();
   $.ajax({
-    url: sa + '/login',
+    url: test + '/login',
     contentType: 'application/json',
     processData: false,
     data: JSON.stringify({
@@ -66,16 +66,18 @@ $('#login-button').on('click', function(e) {
     simpleStorage.set('token', data.token);
     simpleStorage.set('userId', data.user_id);
     simpleStorage.set('profileId', data.profile_id);
+    $('#show-login-modal').addClass('hide');
+    $('#show-register-modal').addClass('hide');
+    $('#nav-logout').removeClass('hide');
+    $('#nav-profile').removeClass('hide');
   }).fail(function(jqxhr, textStatus, errorThrown) {
     alert("Email or Password incorrect, please try again.");
   });
 }); // end login
 
-// only for login page.html
-
 $("#update").on('click', function() {
   $.ajax({
-    url: sa + '/users/' + $("#user-id").val(),
+    url: test + '/users/' + $("#user-id").val(),
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')
@@ -95,9 +97,20 @@ $("#update").on('click', function() {
  });
 }); // end update
 
+// logout
+
+$("#nav-logout").on('click', function() {
+  simpleStorage.flush();
+  window.location.href = 'index.html'
+  $('#nav-logout').addClass('hide');
+  $('#show-login-modal').removeClass('hide');
+  $('#show-register-modal').removeClass('hide');
+  $('#nav-profile').addClass('hide');
+}); // end logout
+
 $("#destroy").on('click', function() {
   $.ajax({
-    url: sa + '/users/' + $("#user-id").val(),
+    url: test + '/users/' + $("#user-id").val(),
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')

@@ -8,7 +8,7 @@ var showProfileInformationTemplate = function (data) {
 
 var showProfile = function() {
   $.ajax({
-    url: sa + "/profiles/" + simpleStorage.get('profileId'),
+    url: test + "/profiles/" + simpleStorage.get('profileId'),
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('profileId')
     },
@@ -54,7 +54,7 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
 
 var loadProjectsOnProfile = function() {
   $.ajax({
-    url: sa + '/profiles/' + simpleStorage.get('profileId') + '/projects',
+    url: test + '/profiles/' + simpleStorage.get('profileId') + '/projects',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')
@@ -91,7 +91,7 @@ $(function() {
 
   $('#show-profile').on('click', '#profile-update', function(data) {
     $.ajax({
-      url: sa + '/profiles/' + simpleStorage.get('profileId')
+      url: test + '/profiles/' + simpleStorage.get('profileId')
     }).done(function(data) {
       showEditProfileForm(data);
       populateUpdateForm(data.profile);
@@ -100,7 +100,7 @@ $(function() {
 
   $("#update-profile").on('click', '#profile-submit-update', function(event) {
     $.ajax({
-      url: sa + '/profiles/' + simpleStorage.get('profileId'),
+      url: test + '/profiles/' + simpleStorage.get('profileId'),
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -127,7 +127,7 @@ $(function() {
 
   $("#show-profile").on('click', '#profile-destroy', function(data) {
     $.ajax({
-      url: sa + '/users/' + simpleStorage.get('userId'),
+      url: test + '/users/' + simpleStorage.get('userId'),
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -148,7 +148,7 @@ $("#project-create").on('click', function(e) {
   projectReader.onload = function(event) {
     var project_picture = event.target.result;
       $.ajax({
-      url: sa + '/projects',
+      url: test + '/projects',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -172,7 +172,7 @@ $("#project-create").on('click', function(e) {
 
 var getProject = function (element) {
   return $.ajax({
-    url: sa + "/projects/" + element.data('id'),
+    url: test + "/projects/" + element.data('id'),
   });
 };
 
@@ -209,7 +209,7 @@ $("#show-project").on('click', '#project-edit', function(data) {
 
 $("#update-project").on('click', '#project-update', function() {
   $.ajax({
-    url: sa + '/projects/' + $(this).data('id'),
+    url: test + '/projects/' + $(this).data('id'),
     method: 'POST',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -231,7 +231,7 @@ $("#update-project").on('click', '#project-update', function() {
 
 $("#show-project").on('click', '#project-destroy', function(data) {
   $.ajax({
-    url: sa + '/projects/' + $(this).data('id'),
+    url: test + '/projects/' + $(this).data('id'),
     method: 'DELETE',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
