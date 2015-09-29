@@ -25,6 +25,7 @@ var indexProjectRequest = function () {
      $.ajax({
       url: sa + "/projects/", // unique AJAX call
     }).done(function(data) {
+      console.log(data);
       indexProjects(data);
       }).fail(function(data) {
       console.error(data);
