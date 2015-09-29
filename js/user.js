@@ -18,7 +18,7 @@ $('#register-button').on('click', function(e) {
   // reader.onload = function(event) {
   //   var picture = event.target.result;
     $.ajax({
-      url: test + '/users',
+      url: sa + '/users',
        contentType: 'application/json',
        processData: false,
        data: JSON.stringify({
@@ -50,7 +50,7 @@ $('#register-button').on('click', function(e) {
 $('#login-button').on('click', function(e) {
   e.preventDefault();
   $.ajax({
-    url: test + '/login',
+    url: sa + '/login',
     contentType: 'application/json',
     processData: false,
     data: JSON.stringify({
@@ -77,7 +77,7 @@ $('#login-button').on('click', function(e) {
 
 $("#update").on('click', function() {
   $.ajax({
-    url: test + '/users/' + $("#user-id").val(),
+    url: sa + '/users/' + $("#user-id").val(),
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')
@@ -110,7 +110,7 @@ $("#nav-logout").on('click', function() {
 
 $("#destroy").on('click', function() {
   $.ajax({
-    url: test + '/users/' + $("#user-id").val(),
+    url: sa + '/users/' + $("#user-id").val(),
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')

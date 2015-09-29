@@ -23,7 +23,7 @@ var indexProjects = function (data) {
 
 var indexProjectRequest = function () {
      $.ajax({
-      url: test + "/projects/", // unique AJAX call
+      url: sa + "/projects/", // unique AJAX call
     }).done(function(data) {
       console.log(data);
       indexProjects(data);
@@ -50,7 +50,7 @@ $("#project-create").on('click', function(e) {
   projectReader.onload = function(event) {
     var project_picture = event.target.result;
       $.ajax({
-      url: test + '/projects',
+      url: sa + '/projects',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -74,7 +74,7 @@ $("#project-create").on('click', function(e) {
 
 var getProject = function (element) {
   return $.ajax({
-    url: test + "/projects/" + element.data('id'),
+    url: sa + "/projects/" + element.data('id'),
   });
 };
 
@@ -111,7 +111,7 @@ $("#show-project").on('click', '#project-edit', function(data) {
 
 $("#update-project").on('click', '#project-update', function() {
   $.ajax({
-    url: test + '/projects/' + $(this).data('id'),
+    url: sa + '/projects/' + $(this).data('id'),
     method: 'POST',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
@@ -133,7 +133,7 @@ $("#update-project").on('click', '#project-update', function() {
 
 $("#show-project").on('click', '#project-destroy', function(data) {
   $.ajax({
-    url: test + '/projects/' + $(this).data('id'),
+    url: sa + '/projects/' + $(this).data('id'),
     method: 'DELETE',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
