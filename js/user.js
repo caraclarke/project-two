@@ -76,7 +76,7 @@ $('#login-button').on('click', function(e) {
 $("#update").on('click', function() {
   $.ajax({
     url: sa + '/users/' + $("#user-id").val(),
-    method: 'PATCH',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + simpleStorage.get('token')
     },

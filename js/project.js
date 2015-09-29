@@ -1,5 +1,5 @@
 var sa = 'https://shielded-ocean-1335.herokuapp.com';
-// var test = 'http://localhost:3000';
+var test = 'http://localhost:3000';
 
 Handlebars.registerHelper('grouped_each', function(every, context, options) {
   var out = "", subcontext = [], i;
@@ -34,7 +34,6 @@ var indexProjectRequest = function () {
 
 $(function() {
   'use strict';
-  // var test = 'http://localhost:3000';
 
 // Projects
   indexProjectRequest();
@@ -105,7 +104,7 @@ $("#show-project").on('click', '#project-edit', function(data) {
 $("#update-project").on('click', '#project-update', function() {
   $.ajax({
     url: sa + '/projects/' + $(this).data('id'),
-    method: 'PATCH',
+    method: 'POST',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
     },
