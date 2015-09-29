@@ -184,9 +184,9 @@
 
     <!-- show project template -->
     <script id="project-show-template" type="text/x-handlebars-template">
-       <h3>{{title}}</h3>
+       <h3 id="title">{{title}}</h3>
        <img src="{{project_image}}"></img>
-       <p>Instructions: {{instructions}}</p>
+       <p id="instructions">Instructions: {{instructions}}</p>
         <button id="project-edit" data-id="{{id}}">Edit</button>
         <button id="project-destroy" data-id="{{id}}">Destroy</button>
    </script>

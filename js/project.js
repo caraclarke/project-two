@@ -32,6 +32,13 @@ var indexProjectRequest = function () {
     });
 }; // end project index
 
+var populateProjectUpdateForm = function(data) {
+  if (data) {
+    $('#project-title').val(data.title);
+    $('#project-instructions').val(data.instructions);
+  };
+}
+
 $(function() {
   'use strict';
 
@@ -98,6 +105,7 @@ var hideEditProjectForm = function () {
 $("#show-project").on('click', '#project-edit', function(data) {
   getProject($(this)).done(function(data) {
     showEditProjectForm(data);
+    populateProjectUpdateForm(data.project);
  });
 }); // end project edit show
 

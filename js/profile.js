@@ -14,7 +14,6 @@ var showProfile = function() {
     },
   }).done(function(data) {
     showProfileInformationTemplate(data);
-    console.log(data);
   }).fail(function(data) {
     console.error(data);
   });
@@ -22,13 +21,19 @@ var showProfile = function() {
 
 var populateUpdateForm = function(data) {
   if (data) {
-    //$('#profile-update-template').data('id', data.id);
     $('#given_name').val(data.given_name);
     $('#surname').val(data.surname);
     $('#location').val(data.location);
     $('#gender').val(data.gender);
     $('#about_me').val(data.about_me);
     // $('').append('<img src="' + data.profile_picture + '" alt="Profile Picture">'  );
+  };
+}
+
+var populateProjectUpdateForm = function(data) {
+  if (data) {
+    $('#project-title').val(data.title);
+    $('#project-instructions').val(data.instructions);
   };
 }
 
@@ -56,9 +61,7 @@ var loadProjectsOnProfile = function() {
     },
   }).done(function(data) {
     indexProjects(data);
-    console.log(data);
   }).fail(function(data) {
-    console.log("Error getting PROFILES PROJECTS");
     console.error(data);
   });
 };
@@ -199,7 +202,8 @@ var hideEditProjectForm = function () {
 
 $("#show-project").on('click', '#project-edit', function(data) {
   getProject($(this)).done(function(data) {
-    showEditProjectForm(data);
+  showEditProjectForm(data);
+  populateProjectUpdateForm(data.project);
  });
 }); // end project edit show
 
