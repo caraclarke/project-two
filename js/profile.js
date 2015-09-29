@@ -20,8 +20,7 @@ var showProfile = function() {
   });
 };
 
-// not currently using
-var populateUpdateForm = function (data) {
+var populateUpdateForm = function(data) {
   if (data) {
     //$('#profile-update-template').data('id', data.id);
     $('#given_name').val(data.given_name);
@@ -91,15 +90,15 @@ $(function() {
     $.ajax({
       url: sa + '/profiles/' + simpleStorage.get('profileId')
     }).done(function(data) {
-      // populateUpdateForm(data);
       showEditProfileForm(data);
+      populateUpdateForm(data.profile);
     });
   });
 
   $("#update-profile").on('click', '#profile-submit-update', function(event) {
     $.ajax({
       url: sa + '/profiles/' + simpleStorage.get('profileId'),
-      method: 'PATCH',
+      method: 'POST',
       headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
       },
@@ -207,7 +206,7 @@ $("#show-project").on('click', '#project-edit', function(data) {
 $("#update-project").on('click', '#project-update', function() {
   $.ajax({
     url: sa + '/projects/' + $(this).data('id'),
-    method: 'PATCH',
+    method: 'POST',
     headers: {
         Authorization: 'Token token=' + simpleStorage.get('token')
     },
