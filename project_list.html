@@ -149,24 +149,20 @@
 
     <!-- show template -->
     <script id="project-show-template" type="text/x-handlebars-template">
-       <h3>{{title}}</h3>
-       <img src="http://lorempixel.com/150/150/nature"></img>
-       <p>Instructions: {{instructions}}</p>
-        <button class="hide" id="project-edit" data-id="{{id}}">Edit</button>
-        <button class="hide" id="project-destroy" data-id="{{id}}">Destroy</button>
+      <h3>{{title}}</h3>
+      <img src="http://lorempixel.com/150/150/nature"></img>
+      <p>Instructions: {{instructions}}</p>
+      <button class="btn btn-primary btn-sm sharp hide" id="project-edit" data-id="{{id}}">Update</button>
+      <button class="btn btn-primary btn-sm sharp hide" id="project-destroy" data-id="{{id}}">Destroy</button>
    </script>
 
   <!-- update template -->
    <script id="project-update-template" type="text/x-handlebars-template">
-      <input id="project-title" type="text" placeholder="project title">
-      <input id="project-instructions" type="text" placeholder="project instructions">
-      <button id="project-update" data-id="{{id}}">Update</button>
+      <p><input id="project-title" type="text" placeholder="project title"></p>
+      <p><input id="project-instructions" type="text" placeholder="project instructions"></p>
+      <button id="project-update" class="btn btn-primary btn-sm sharp" data-id="{{id}}">Update</button>
    </script>
 </div>
-
-<footer class="footer">
-  <a href="#">Back to top</a>
-</footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

@@ -60,13 +60,40 @@ img {
   margin-left: auto;
 }
 
-button {
-  color: #000;
+/* Button styling */
+
+.btn {
+  padding: 10px 10px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.footer {
-  position: absolute;
-  margin-top: 30px;
-  width: 100%;
-  height: 60px;
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: 0 none;
+}
+
+.btn-primary {
+  background: #0099cc;
+  color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background: #007299;
+  box-shadow: none;
+}
+
+.btn.sharp {
+  border-radius:0;
+}
+
+/* Update Form Margin */
+
+#update-project {
+  margin: 25px 0 0 10px;
 }
