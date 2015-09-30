@@ -25,7 +25,6 @@ var indexProjectRequest = function () {
      $.ajax({
       url: sa + "/projects/", // unique AJAX call
     }).done(function(data) {
-      console.log(data);
       indexProjects(data);
       }).fail(function(data) {
       console.error(data);
@@ -88,8 +87,6 @@ $("#index-project").on('click', 'h3 > a', function(event) {
   event.preventDefault();
   getProject($(this)).done(function(data) {
     showProject(data);
-    console.log(data.profile.id);
-    console.log(data.profile.profile_id);
     if (simpleStorage.get('profileId') == data.profile.profile_id) {
       $('#project-edit').removeClass('hide');
       $('#project-destroy').removeClass('hide');

@@ -143,33 +143,6 @@ $(function() {
 
   // project for display on profiles
 
-$("#project-create").on('click', function(e) {
-  var projectReader = new FileReader();
-  projectReader.onload = function(event) {
-    var project_picture = event.target.result;
-      $.ajax({
-      url: sa + '/projects',
-      method: 'POST',
-      headers: {
-        Authorization: 'Token token=' + simpleStorage.get('token')
-      },
-      data: {
-        project: {
-          title: $('#project-title').val(),
-          instructions: $('#project-instructions').val(),
-          profile_id: simpleStorage.get('profileId'),
-          project_image: project_picture
-        }
-      }
-    }).done(function(data) {
-      window.location.href = 'project_list.html';
-    }).fail(function(data) {
-      console.error(data);
-    });
-  };
-  projectReader.readAsDataURL($('#project-picture')[0].files[0]);
-}); // end project create
-
 var getProject = function (element) {
   return $.ajax({
     url: sa + "/projects/" + element.data('id'),
@@ -238,7 +211,7 @@ $("#show-project").on('click', '#project-destroy', function(data) {
     },
   }).done(function(data) {
     alert("Project deleted");
-    window.location.href = 'project_list.html';
+    window.location.href = 'profile.html';
   }).fail(function(data) {
     console.error(data);
   });
