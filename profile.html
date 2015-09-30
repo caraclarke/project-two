@@ -139,7 +139,7 @@
     </div>
 
     <div id="project-display" class="col-md-8 pull-right">
-      <div id="index-project" class="pull-right"></div>
+      <div id="index-project"></div>
       <div id="show-project"></div>
       <div id="update-project"></div>
     </div>
@@ -172,12 +172,8 @@
   <!-- index project template  -->
    <script id="project-index-template" type="text/x-handlebars-template">
     {{#each projects}}
-    <div class="row">
-      <div class="col-md-6 left">
-        <h3><a href="#" data-id="{{id}}">{{title}}</a></h3>
-        <img src="http://lorempixel.com/150/150/nature"></img>
-      </div>
-    </div>
+      <h3><a href="#" data-id="{{id}}">{{title}}</a></h3>
+      <img src="http://lorempixel.com/150/150/nature"></img>
     {{/each}}
   </script>
 

@@ -97,12 +97,12 @@ body {
   line-height: 1;
   letter-spacing: -1px;
   text-align: left;
-  margin-left: -10%;
+  margin-left: 10px;
 }
 
 .lead {
   text-align: left;
-  margin-left: -10%;
+  margin-left: 10px;
 }
 
 .mini-image {
