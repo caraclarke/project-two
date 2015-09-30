@@ -129,16 +129,15 @@
 
   <div class="container marketing">
   <div class="row">
-    <div id="profilehtml" class="col-md-3 pull-left">
+    <div id="profilehtml" class="col-md-4 pull-left">
       <div id="show-profile" class="pull-left"></div>
       <div id="update-profile"></div>
 
-      <!-- <button id="profile-show">View Profile</button><br><br> -->
       <br><button id="workshop-show" class="hide">View Workshops</button>
       <button id="attendance-show" class="hide">View RSVPs</button>
     </div>
 
-    <div id="project-display" class="col-md-8 pull-right">
+    <div id="project-display" class="col-md-7 pull-right">
       <div id="index-project"></div>
       <div id="show-project"></div>
       <div id="update-project"></div>
@@ -172,6 +171,7 @@
   <!-- index project template  -->
    <script id="project-index-template" type="text/x-handlebars-template">
     {{#each projects}}
+      <h2>Your Projects</h2>
       <h3><a href="#" data-id="{{id}}">{{title}}</a></h3>
       <img src="http://lorempixel.com/150/150/nature"></img>
     {{/each}}
@@ -179,11 +179,12 @@
 
     <!-- show project template -->
     <script id="project-show-template" type="text/x-handlebars-template">
-       <h3 id="title">{{title}}</h3>
-       <img src="http://lorempixel.com/150/150/nature"></img>
-       <p id="instructions">Instructions: {{instructions}}</p>
-        <button id="project-edit" data-id="{{id}}">Edit</button>
-        <button id="project-destroy" data-id="{{id}}">Destroy</button>
+      <h2>Your Projects</h2>
+      <h3 id="title">{{title}}</h3>
+      <img src="http://lorempixel.com/150/150/nature"></img>
+      <p id="instructions">Instructions: {{instructions}}</p>
+      <button id="project-edit" data-id="{{id}}">Edit</button>
+      <button id="project-destroy" data-id="{{id}}">Destroy</button>
    </script>
 
   <!-- update project template -->
