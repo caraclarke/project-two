@@ -149,7 +149,7 @@
   <!-- show profile form -->
   <script id="profile-show-template" type="text/x-handlebars-template">
       <h1>{{given_name}} {{surname}}</h1>
-      <img src="{{profile_picture}}" class="img-circle"></img>
+      <img src="https://s3.amazonaws.com/uifaces/faces/twitter/scottgallant/128.jpg" class="img-circle"></img>
       <p>Location: {{location}}</p>
       <p>Gender: {{gender}}</p>
       <p>About Me: {{about_me}}</p><br>
@@ -171,16 +171,14 @@
 
   <!-- index project template  -->
    <script id="project-index-template" type="text/x-handlebars-template">
-    {{#grouped_each 3 projects}}
+    {{#each projects}}
     <div class="row">
-      {{#each this }}
-      <div class="col-md-4">
+      <div class="col-md-6 left">
         <h3><a href="#" data-id="{{id}}">{{title}}</a></h3>
         <img src="{{project_image}}"></img>
       </div>
-      {{/each}}
     </div>
-    {{/grouped_each}}
+    {{/each}}
   </script>
 
     <!-- show project template -->
